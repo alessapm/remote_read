@@ -12,7 +12,15 @@ controller.create = (book) => {
 };
 
 controller.findById = (id) => {
-  return db.query(`SELECT * FROM posts WHERE id = $1`, [id]);
-}
+  return db.one(`SELECT * FROM posts WHERE id = $1`, [id]);
+};
+
+controller.update = (book, id) => {
+  return db.none(`UPDATE posts SET title = $1, author = $2, img_url = $3, book_description = $4, rating = $5 WHERE id = $6`, [book.title, book.author, book.img_url, book.book_description, book.rating, id]);
+};
+
+controller.destroy = (id) => {
+  return db.none(`DELETE FROM posts WHERE id = $1`, [id]);
+};
 
 module.exports = controller;

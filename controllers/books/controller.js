@@ -2,6 +2,7 @@
 
 //YOU ARE IN BOOKS
 const Book = require('../../models/book');
+const Comment = require('../../models/comment');
 
 let controller = {};
 
@@ -16,24 +17,44 @@ controller.new = (req, res) => {
 };
 
 controller.create = (req, res) => {
-  console.log(req.body)
+  // console.log(req.body)
   Book.create(req.body.books)
   .then(() => res.redirect('/books'))
   .catch(err => console.log('error is ', err));
 };
 
 controller.show = (req, res) => {
-  console.log(req.params.id);
+
   Book.findById(req.params.id)
-  .then(data => res.render('books/show', { books: data }))
+  .then((data) => {
+    console.log("data: ", data);
+    Comment.findAllById(req.params.id)
+     .then(thesecomments => {
+        console.log('these comments: ', thesecomments);
+        res.render('books/show', { books: data, comments: thesecomments })
+    })
+  })
+
   .catch(err => console.log('error is ', err));
 };
 
-controller.edit = (req, res) => {};
+controller.edit = (req, res) => {
+  Book.findById(req.params.id)
+  .then(data => res.render('books/edit',{ books: data } ))
+  .catch(err => console.log('err: ', err));
+};
 
-controller.update = (req, res) => {};
+controller.update = (req, res) => {
+  Book.update(req.body.books, req.params.id)
+  .then( data => res.redirect('/books'))
+  .catch(err => console.log('error: ', err));
+};
 
-controller.destroy = (req, res) => {};
+controller.destroy = (req, res) => {
+  Book.destroy(req.params.id)
+  .then(data => res.redirect('/books'))
+  .catch(err => console.log('error: ', err));
+};
 
 
 module.exports = controller;

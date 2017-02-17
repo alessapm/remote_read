@@ -12,13 +12,59 @@
             <img src='<%= books.img_url %>' alt= '<%= books.title %>'>
         </div>
 
-          <h2><%= books.title %></h2>
+        <h2><%= books.title %></h2>
 
         <p><%= books.author %></p>
         <p>&#9734 Rating: <%= books.rating %></p>
         <p><%= books.book_description %></p>
         <br>
 
+        <form action="/books/<%= books.id %>/edit" method="GET">
+          <input type="submit" value="&#9998">
+        </form>
+        <form action="/books/<%= books.id %>?_method=DELETE" method="POST">
+          <input type="submit" value="&#10006">
+        </form>
+
+        <div class="comment-area">
+
+          <form action="/books/<%= books.id %>" method="POST">
+            <h4>Add Comment:</h4>
+            <label for="name">Name:</label><br>
+            <input type="text" name="comments[username]"><br><br>
+            <label for="rating">Rating:</label>
+            <select name="books[rating]">
+              <option value="0">0</option>
+              <option value="1">&#9734</option>
+              <option value="2">&#9734 &#9734</option>
+              <option value="3">&#9734 &#9734 &#9734</option>
+              <option value="4">&#9734 &#9734 &#9734 &#9734</option>
+              <option value="5">&#9734 &#9734 &#9734 &#9734 &#9734</option>
+            </select><br><br>
+            <textarea name="comments" placeholder="write review (optional)"></textarea><br>
+            <input type="submit" value ="Add Comment">
+          </form>
+
+          <h3>Comments:</h3>
+          <div class='all-comments'>
+            <% comments.forEach((each) => { %>
+                <h3> <%= each.username %></h3>
+                <p>&#9734 Rating: <%= each.rating %></p>
+                <p> <%= each.review %></p>
+            <% }) %>
+
+          </div>
+
+
+        </div>
+
+
       </div>
 </body>
 </html>
+
+
+
+
+
+
