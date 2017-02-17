@@ -1,10 +1,15 @@
 //controller.index, create, new, show, edit, update, destroy
 
 //YOU ARE IN BOOKS
+const Book = require('../../models/book');
 
 let controller = {};
 
-controller.index = (req, res) => {};
+controller.index = (req, res) => {
+  Book.findAll()
+  .then(data => res.render('books/index', { books: data }))
+  .catch(err => console.log('error: ', err));
+};
 
 controller.create = (req, res) => {};
 
