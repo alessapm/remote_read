@@ -11,9 +11,16 @@ controller.index = (req, res) => {
   .catch(err => console.log('error: ', err));
 };
 
-controller.create = (req, res) => {};
+controller.new = (req, res) => {
+  res.render('books/new');
+};
 
-controller.new = (req, res) => {};
+controller.create = (req, res) => {
+  console.log(req.body)
+  Book.create(req.body.books)
+  .then(() => res.redirect('/books'))
+  .catch(err => console.log('error is ', err));
+};
 
 controller.show = (req, res) => {};
 

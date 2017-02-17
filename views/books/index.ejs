@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Remote Read</title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <header>
+    <h1>Book Selections</h1>
+  </header>
+  <div class ='post-area'>
+    <div class ='add-new-area'>
+      <a href='/books/new'>+Add Book</a>
+    </div>
+    <% books.forEach((each) => { %>
+      <div class = 'each-post'>
+        <div class='each-photo'>
+          <a href = '/books/<%= each.id %>'>
+            <img src='<%= each.img_url %>' alt= '<%= each.name %>'>
+          </a>
+        </div>
+        <a href = '/books/<%= each.id %>' class='title-href'>
+          <h2><%= each.title %></h2>
+        </a>
+        <p><%= each.author %></p>
+        <p>&#9734 Rating: <%= each.rating %></p>
+        <p><%= each.book_description %></p>
+        <br>
+
+      </div>
+    <% }) %>
+
+
+  </div>
+
+</body>
+</html>
