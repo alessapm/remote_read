@@ -11,4 +11,8 @@ controller.create = (book) => {
     [book.title, book.author, book.img_url, book.book_description, book.rating]);
 };
 
+controller.findById = (id) => {
+  return db.query(`SELECT * FROM posts WHERE id = $1`, [id]);
+}
+
 module.exports = controller;

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <div class = 'each-post'>
+        <div class='each-photo'>
+            <img src='<%= books.img_url %>' alt= '<%= books.title %>'>
+        </div>
+
+          <h2><%= books.title %></h2>
+
+        <p><%= books.author %></p>
+        <p>&#9734 Rating: <%= books.rating %></p>
+        <p><%= books.book_description %></p>
+        <br>
+
+      </div>
+</body>
+</html>

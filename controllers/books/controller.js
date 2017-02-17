@@ -22,7 +22,12 @@ controller.create = (req, res) => {
   .catch(err => console.log('error is ', err));
 };
 
-controller.show = (req, res) => {};
+controller.show = (req, res) => {
+  console.log(req.params.id);
+  Book.findById(req.params.id)
+  .then(data => res.render('books/show', { books: data }))
+  .catch(err => console.log('error is ', err));
+};
 
 controller.edit = (req, res) => {};
 
