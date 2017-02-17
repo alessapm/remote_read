@@ -19,4 +19,4 @@ app.use(bodyParser.json());
 
 app.listen(process.env.PORT || 3000);
 
-app.use(require('./resources'))
+app.use(require('./resources'));

@@ -1,0 +1,23 @@
+-- DATABASE is called remote_read
+
+DROP TABLE IF EXISTS posts;
+DROP TABLE IF EXISTS comments;
+
+CREATE TABLE posts
+(id BIGSERIAL PRIMARY KEY,
+title VARCHAR(255) NOT NULL,
+author VARCHAR(255) NOT NULL,
+img_url TEXT,
+book_description TEXT,
+rating INTEGER NOT NULL);
+
+CREATE TABLE comments
+(id BIGSERIAL PRIMARY KEY,
+post_id INTEGER REFERENCES posts(id),
+username VARCHAR(255) NOT NULL,
+rating INTEGER NOT NULL,
+review VARCHAR(500));
+
+-- CREATE TABLE users
+-- (id BIGSERIAL PRIMARY KEY,
+-- username VARCHAR(50));

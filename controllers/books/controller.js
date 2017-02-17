@@ -1,4 +1,6 @@
-//YOU ARE IN COMMENTS
+//controller.index, create, new, show, edit, update, destroy
+
+//YOU ARE IN BOOKS
 
 let controller = {};
 
