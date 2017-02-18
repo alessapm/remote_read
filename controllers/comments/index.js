@@ -10,9 +10,9 @@ const controller = require('./controller');
 // // router.get('/:id', controller.show);
 // router.get('/:id/edit', controller.edit);
 
-// router.post('/', controller.create);
+router.post('/', controller.create);
 // router.put('/:id', controller.update);
 
-// router.delete('/:id', controller.destroy);
+router.delete('/:id', controller.destroy);
 
 module.exports = router;

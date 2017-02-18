@@ -10,8 +10,8 @@ let controller = {};
 // };
 
 controller.create = (req, res) => {
-  Comment.create(req.body.comments, req.params.id)
-  .then(() => res.redirect('/books/'+req.params.id))
+  Comment.create(req.body.comments)
+  .then(() => res.redirect('/books/'+req.body.comments.post_id))
   .catch((err)=> console.log("error: ", err));
 };
 
@@ -23,7 +23,13 @@ controller.edit = (req, res) => {};
 
 controller.update = (req, res) => {};
 
-controller.destroy = (req, res) => {};
+controller.destroy = (req, res) => {
+  Comment.destroy(req.params.id)
+  .then((data) => {
+
+    res.redirect('/books/'+data.post_id)
+  })
+};
 
 
 module.exports = controller;
