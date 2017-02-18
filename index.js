@@ -12,7 +12,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 
-const markdown = require('markdown').markdown;
+const markdown = require('marked');
+// const toMarkdown = require('to-markdown');
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
