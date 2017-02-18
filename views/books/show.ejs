@@ -52,8 +52,15 @@
                 <h4> <%= each.username %></h4>
                 <p>&#9734 Rating: <%= each.rating %></p>
                 <p> <%- each.review %></p>
+                <p>LIKES: <%= each.likes %></p>
+
                 <form action="/comments/<%= each.id %>?_method=DELETE" method="POST">
                   <input type="submit" value="Delete Comment">
+                </form>
+
+
+                <form method="POST" action="/comments/like/<%= each.post_id %>/<%= each.id %>?_method=PUT">
+                  <input type="submit" value="LIKE">
                 </form>
             <% }) %>
 

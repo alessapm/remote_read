@@ -9,14 +9,15 @@ title VARCHAR(255) NOT NULL,
 author VARCHAR(255) NOT NULL,
 img_url TEXT,
 book_description TEXT,
-rating INTEGER NOT NULL);
+rating INTEGER);
 
 CREATE TABLE comments
 (id BIGSERIAL PRIMARY KEY,
 post_id INTEGER REFERENCES posts(id),
 username VARCHAR(255) NOT NULL,
 rating INTEGER NOT NULL,
-review VARCHAR(500));
+review VARCHAR(500),
+likes INTEGER DEFAULT 0);
 
 -- CREATE TABLE users
 -- (id BIGSERIAL PRIMARY KEY,

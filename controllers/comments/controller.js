@@ -7,16 +7,14 @@ const marked = require('marked');
 
 let controller = {};
 
-// controller.index = (req, res) => {
-
-// };
 
 controller.create = (req, res) => {
   let reviewHTML = marked(req.body.comments.review);
   console.log(reviewHTML);
 
   Comment.create(req.body.comments, reviewHTML)
-  .then(() => res.redirect('/books/'+req.body.comments.post_id))
+  .then(() => Comment.updateRating(req.body.comments.post_id)
+    .then(() => res.redirect('/books/'+req.body.comments.post_id)))
   .catch((err)=> console.log("error: ", err));
 };
 
@@ -29,5 +27,14 @@ controller.destroy = (req, res) => {
   })
 };
 
+controller.like = (req, res) => {
+  console.log('hiiiiiie ', req.body, req.params)
+  Comment.like(req.params.id)
+  .then((data) => {
+    console.log(data);
+    res.redirect('/books/'+req.params.post_id)
+
+  })
+};
 
 module.exports = controller;

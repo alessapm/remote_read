@@ -27,10 +27,10 @@ controller.show = (req, res) => {
 
   Book.findById(req.params.id)
   .then((data) => {
-    console.log("data: ", data);
+    // console.log("data: ", data);
     Comment.findAllById(req.params.id)
      .then(thesecomments => {
-        console.log('these comments: ', thesecomments);
+        // console.log('these comments: ', thesecomments);
         res.render('books/show', { books: data, comments: thesecomments })
     })
   })
