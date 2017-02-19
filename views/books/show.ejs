@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="">
 </head>
 <body>
+  <div class ='add-new-area'>
+      <a href='/books/'> &#8592 Back to all books</a>
+    </div>
   <div class = 'each-post'>
         <div class='each-photo'>
             <img src='<%= books.img_url %>' alt= '<%= books.title %>'>
@@ -58,10 +61,16 @@
                   <input type="submit" value="Delete Comment">
                 </form>
 
+                <div class ='like-and-reply'>
+                  <form method="POST" action="/comments/like/<%= each.post_id %>/<%= each.id %>?_method=PUT">
+                    <input type="submit" value="LIKE">
+                  </form>
 
-                <form method="POST" action="/comments/like/<%= each.post_id %>/<%= each.id %>?_method=PUT">
-                  <input type="submit" value="LIKE">
-                </form>
+
+                  <form method="POST" action="">
+                    <input type="submit" value="reply">
+                  </form>
+                </div>
             <% }) %>
 
           </div>

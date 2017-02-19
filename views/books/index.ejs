@@ -4,16 +4,32 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Remote Read</title>
-  <link rel="stylesheet" href="">
+
+  <!--Import Google Icon Font-->
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <!-- <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/> -->
+
+
+  <link type="text/css" rel="stylesheet" href="/css/style.css"  media="screen,projection"/>
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
+  <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+
+
 </head>
 <body>
   <header>
     <h1>Book Selections</h1>
   </header>
-  <div class ='post-area'>
     <div class ='add-new-area'>
       <a href='/books/new'>+Add Book</a>
     </div>
+  <div class ='post-area'>
+    <div class = 'all-posts'>
     <% books.forEach((each) => { %>
       <div class = 'each-post'>
         <div class='each-photo'>
@@ -21,19 +37,25 @@
             <img src='<%= each.img_url %>' alt= '<%= each.title %>'>
           </a>
         </div>
-        <a href = '/books/<%= each.id %>' class='title-href'>
-          <h2><%= each.title %></h2>
-        </a>
-        <p><%= each.author %></p>
-        <p>&#9734 Rating: <%= each.rating %></p>
-        <p><%= each.book_description %></p>
-        <br>
-
+        <div class='each-text'>
+          <a href = '/books/<%= each.id %>' class='title-href'>
+            <h2><%= each.title %></h2>
+          </a>
+          <p><%= each.author %></p>
+          <p>&#9734 Rating: <%= each.rating %></p>
+          <div class='book-description'>
+            <p><%= each.book_description %></p>
+            <br>
+          </div>
+          <p>Comments: <%= each.num_comments %></p>
+        </div>
       </div>
     <% }) %>
-
-
+    </div>
   </div>
+  <footer>
+    <h3> &#9829 &#9825 &#9786  Alessa </h3>
+  </footer>
 
 </body>
 </html>

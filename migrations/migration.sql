@@ -1,7 +1,8 @@
 -- DATABASE is called remote_read
 
-DROP TABLE IF EXISTS posts;
 DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS posts;
+
 
 CREATE TABLE posts
 (id BIGSERIAL PRIMARY KEY,
@@ -9,7 +10,8 @@ title VARCHAR(255) NOT NULL,
 author VARCHAR(255) NOT NULL,
 img_url TEXT,
 book_description TEXT,
-rating INTEGER);
+rating INTEGER,
+num_comments INTEGER DEFAULT 0);
 
 CREATE TABLE comments
 (id BIGSERIAL PRIMARY KEY,

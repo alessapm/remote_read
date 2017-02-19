@@ -20,6 +20,10 @@ commentsController.updateRating = (id) => {
     [id]);
 };
 
+commentsController.updateComments = (id) => {
+  return db.manyOrNone(`UPDATE posts SET num_comments = num_comments +1 WHERE id = $1`, [id]);
+}
+
 commentsController.destroy = (id) => {
   return db.one(`DELETE FROM comments WHERE id = $1 returning post_id`, [id]);
 };

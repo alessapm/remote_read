@@ -14,7 +14,8 @@ controller.create = (req, res) => {
 
   Comment.create(req.body.comments, reviewHTML)
   .then(() => Comment.updateRating(req.body.comments.post_id)
-    .then(() => res.redirect('/books/'+req.body.comments.post_id)))
+    .then(() => Comment.updateComments(req.body.comments.post_id)
+      .then(() => res.redirect('/books/'+req.body.comments.post_id))))
   .catch((err)=> console.log("error: ", err));
 };
 
