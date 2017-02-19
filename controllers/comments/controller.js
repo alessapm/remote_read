@@ -1,4 +1,4 @@
-//YOU ARE IN COMMENTS
+//YOU ARE IN COMMENTS controller.js
 
 const Comment = require('../../models/comment');
 const marked = require('marked');

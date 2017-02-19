@@ -3,6 +3,7 @@
 //YOU ARE IN BOOKS
 const Book = require('../../models/book');
 const Comment = require('../../models/comment');
+const Sub = require('../../models/subcomment');
 
 let controller = {};
 
@@ -30,8 +31,12 @@ controller.show = (req, res) => {
     // console.log("data: ", data);
     Comment.findAllById(req.params.id)
      .then(thesecomments => {
-        // console.log('these comments: ', thesecomments);
-        res.render('books/show', { books: data, comments: thesecomments })
+      //console.log('hitting the then with these comments, thesecomments: ', thesecomments);
+        Sub.findAllById(thesecomments.id)
+          .then(subcomments => {
+            // console.log('these comments: ', thesecomments);
+             res.render('books/show', { books: data, comments: thesecomments, sub: subcomments})
+          })
     })
   })
 

@@ -1,5 +1,6 @@
 -- DATABASE is called remote_read
 
+DROP TABLE IF EXISTS subcomments;
 DROP TABLE IF EXISTS comments;
 DROP TABLE IF EXISTS posts;
 
@@ -20,6 +21,13 @@ username VARCHAR(255) NOT NULL,
 rating INTEGER NOT NULL,
 review VARCHAR(500),
 likes INTEGER DEFAULT 0);
+
+CREATE TABLE subcomments
+(id BIGSERIAL PRIMARY KEY,
+comment_id INTEGER REFERENCES comments(id),
+post_id INTEGER REFERENCES posts(id),
+username VARCHAR(255) NOT NULL,
+reply VARCHAR(500));
 
 -- CREATE TABLE users
 -- (id BIGSERIAL PRIMARY KEY,

@@ -67,17 +67,25 @@
                   </form>
 
 
-                  <form method="POST" action="">
+                  <form method="POST" action="/subcomments">
+                    <h5>Reply to Comment</h5>
+                    <label for="username">Name to display with reply:</label>
+                    <input type="text" name="sub[username]"><br><br>
+                    <label for="reply">Reply:</label>
+                    <input type="text" name="sub[reply]"><br><br>
                     <input type="submit" value="reply">
                   </form>
                 </div>
+
+                <% sub.forEach((subeach) => { %>
+                  <h5> <%= subeach.username %></h5>
+                  <p> <%= subeach.reply %></p>
+               <% }) %>
             <% }) %>
 
           </div>
 
-
         </div>
-
 
       </div>
 </body>

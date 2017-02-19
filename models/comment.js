@@ -6,7 +6,7 @@ const toMarkdown = require('to-markdown');
 const commentsController = {};
 
 commentsController.findAllById = (id) => {
-  return db.manyOrNone(`SELECT * FROM comments WHERE post_id = $1 ORDER BY likes DESC`, [id])
+  return db.manyOrNone(`SELECT * FROM comments WHERE post_id = $1 ORDER BY likes DESC`, [id]);
 };
 
 commentsController.create = (comment, review) => {
