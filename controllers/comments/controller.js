@@ -10,7 +10,7 @@ let controller = {};
 
 controller.create = (req, res) => {
   let reviewHTML = marked(req.body.comments.review);
-  console.log(reviewHTML);
+  // console.log(reviewHTML);
 
   Comment.create(req.body.comments, reviewHTML)
   .then(() => Comment.updateRating(req.body.comments.post_id)
@@ -29,7 +29,7 @@ controller.destroy = (req, res) => {
 };
 
 controller.like = (req, res) => {
-  console.log('hiiiiiie ', req.body, req.params)
+  // console.log('hiiiiiie ', req.body, req.params)
   Comment.like(req.params.id)
   .then((data) => {
     console.log(data);

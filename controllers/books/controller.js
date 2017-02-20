@@ -31,16 +31,18 @@ controller.show = (req, res) => {
     // console.log("data: ", data);
     Comment.findAllById(req.params.id)
      .then(thesecomments => {
-      //console.log('hitting the then with these comments, thesecomments: ', thesecomments);
-        Sub.findAllById(thesecomments.id)
+      console.log('hitting the then with these comments, thesecomments: ', thesecomments);
+        //!!!thesecomments is an array of two objects, not a single object
+        Sub.findAllById(req.params.id)
           .then(subcomments => {
+            console.log('LOOK HERE subcomments comes back as: ', subcomments)
             // console.log('these comments: ', thesecomments);
              res.render('books/show', { books: data, comments: thesecomments, sub: subcomments})
           })
     })
   })
 
-  .catch(err => console.log('error is ', err));
+  .catch(err => console.log('error is in controller.show ', err));
 };
 
 controller.edit = (req, res) => {
