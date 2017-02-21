@@ -76,12 +76,12 @@
                     <form method="POST" action="/comments/like/<%= each.post_id %>/<%= each.id %>?_method=PUT">
                       <input class="button" type="submit" value="LIKE">
                     </form>
-                    <button class ='dom-reply button'>Reply</button>
+                    <button class ='dom-reply button' data='<%= each.id %>'>Reply</button>
                   </div>
                   </div>
 
                   <div class = 'comments-and-add'>
-                    <div class = 'add-reply'>
+                    <div class = 'add-reply' data='<%= each.id %>'>
                       <form method="POST" action="/subcomments">
                         <h5>Reply to Comment</h5>
                         <label for="username">Name for reply:</label><br>
