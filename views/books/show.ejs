@@ -6,6 +6,7 @@
   <title></title>
   <link href="https://fonts.googleapis.com/css?family=Almendra+Display|Bungee+Outline|Codystar:300|Coming+Soon|Faster+One|Homemade+Apple||Monofett|Montserrat|" rel="stylesheet">
   <link rel="stylesheet" href="/css/show.css">
+  <script src= '/js/show.js'></script>
 </head>
 <body>
   <div class ='back'>
@@ -53,7 +54,7 @@
               </select><br><br>
               <textarea name="comments[review]" placeholder="write review (optional)"></textarea><br>
               <input type="hidden" name="comments[post_id]" value="<%= books.id %>">
-              <input type="submit" value ="Add Comment">
+              <input class='button' type="submit" value ="Add Comment">
             </form>
           </div>
           <div class = "comments">
@@ -68,14 +69,14 @@
 
                 <div class ='comment-options'>
                   <form action="/comments/<%= each.id %>?_method=DELETE" method="POST">
-                    <input type="submit" value="Delete Comment">
+                    <input class="button" type="submit" value="Delete Comment">
                   </form>
 
                   <div class ='like-and-reply'>
                     <form method="POST" action="/comments/like/<%= each.post_id %>/<%= each.id %>?_method=PUT">
-                      <input type="submit" value="LIKE">
+                      <input class="button" type="submit" value="LIKE">
                     </form>
-                    <button class ='dom-reply'>Reply</button>
+                    <button class ='dom-reply button'>Reply</button>
                   </div>
                   </div>
 
@@ -87,15 +88,20 @@
                         <input type="text" name="sub[username]"><br>
                         <label for="reply">Reply:</label><br>
                         <input class = 'reply-field' type="text" name="sub[reply]"><br>
+                        <input type="hidden" name="sub[comment_id]" value="<%= comments[0].id %>">
+                        <input type="hidden" name="sub[post_id]" value="<%= books.id %>">
+
                         <input class = 'submit-reply' type="submit" value="submit">
                       </form>
                     </div>
 
                     <% sub.forEach((subeach) => { %>
+                      <% if (subeach.comment_id === ) { %>
                       <div class='comment-beta'>
                         <h5> <%= subeach.username %></h5>
                         <p class ='italic'> <%= subeach.reply %></p>
                       </div>
+                      <% } %>
                    <% }) %>
                   </div>
                 </div>

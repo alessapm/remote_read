@@ -1,5 +1,8 @@
-body {
-
+body{
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 header {
@@ -7,7 +10,6 @@ header {
   text-align: center;
   background-color: rgba(255,33,19,1);
   padding-top: 30px;
-  font-family: Arial sans-serif;
   box-shadow: 0 2px 1px rgba(176,22,13,.75);
 
 }
@@ -22,6 +24,7 @@ footer {
   font-family: Arial sans-serif;
   color: rgba(252,123,178,1);
   text-align: center;
+  align-items: flex-end;
 
 
 }
@@ -73,9 +76,19 @@ footer {
   margin-right: 30px;
   margin-bottom: 30px;
   background-color: rgba(255,240,229,1);
-  overflow: hidden;
-  text-overflow: ellipsis;
 
+
+}
+
+.book-description {
+  /*border: 2px hotpink solid;*/
+  height: 40%;
+  overflow: scroll;
+  padding-top: 0px;
+}
+
+.book-description p {
+  margin-top: 0;
 }
 
 

@@ -46,17 +46,18 @@ h5 {
   display: flex;
 }
 
-input.edit, input.delete {
+.edit-button, .delete-button {
   height: 50px;
   width: 50px;
   font-size: 3em;
+  cursor: pointer;
 }
 
-input.edit {
+.edit-button {
   color: rgba(245,146,0,1);
 }
 
-input.delete {
+.delete-button {
   color: rgba(255,33,19,1);
 }
 
@@ -149,5 +150,9 @@ textarea {
   background-color: rgba(255,0,0,.15);
   border: 1px orange outset;
 
+}
+
+.button {
+  cursor: pointer;
 }
 

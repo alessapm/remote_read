@@ -1,0 +1,66 @@
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  height: 100px;
+  text-align: center;
+  background-color: rgba(255,33,19,1);
+  padding-top: 30px;
+  box-shadow: 0 2px 1px rgba(176,22,13,.75);
+  margin-bottom: 20px;
+
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+form {
+  height: 100%;
+  width: 100%;
+}
+
+.form-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 5px rgba(0,0,0,0.05) inset;
+  height: 65vh;
+  width: 50%;
+  margin-left: 25%;
+  padding-top: 20px;
+  padding-left: 25px;
+}
+
+label {
+ font-weight: bold;
+}
+
+input {
+  width: 90%;
+  height: 5%;
+}
+
+.back {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.back a {
+  text-decoration: none;
+  font-size: 1.2em;
+  font-family: Arial sans-serif;
+  color: rgba(245,146,0,1);
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.submit-button {
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 5px;
+}

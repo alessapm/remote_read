@@ -4,40 +4,42 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Add New Book</title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="/css/add.css">
 </head>
 <body>
   <header>
     <h1>Add New Book</h1>
   </header>
-  <div class ='add-new-area'>
+  <div class ='back'>
     <a href='/books/'> &#8592 Back to all books</a>
   </div>
-  <form method="POST" action="/books">
-    <label for="title">Title:</label><br>
-    <input type="text" name="books[title]"><br><br>
+  <div class ="form-area">
+    <form method="POST" action="/books">
+      <label for="title">Title:</label><br>
+      <input type="text" name="books[title]"><br><br>
 
-    <label for="author">Author:</label><br>
-    <input type="text" name="books[author]"><br><br>
+      <label for="author">Author:</label><br>
+      <input type="text" name="books[author]"><br><br>
 
-    <label for="img_url">Image link:</label><br>
-    <input type="text" name="books[img_url]"><br><br>
+      <label for="img_url">Image link:</label><br>
+      <input type="text" name="books[img_url]"><br><br>
 
-    <label for="book_description">Description:</label><br>
-    <input type="text" name="books[book_description]"><br><br>
+      <label for="book_description">Description:</label><br>
+      <input type="text" name="books[book_description]"><br><br>
 
-    <label for="rating">Rating:</label>
-    <select name="books[rating]">
-      <option value="0">0</option>
-      <option value="1">&#9734</option>
-      <option value="2">&#9734 &#9734</option>
-      <option value="3">&#9734 &#9734 &#9734</option>
-      <option value="4">&#9734 &#9734 &#9734 &#9734</option>
-      <option value="5">&#9734 &#9734 &#9734 &#9734 &#9734</option>
-    </select><br><br>
+      <label for="rating">Rating:</label>
+      <select name="books[rating]">
+        <option value="0">0</option>
+        <option value="1">&#9734</option>
+        <option value="2">&#9734 &#9734</option>
+        <option value="3">&#9734 &#9734 &#9734</option>
+        <option value="4">&#9734 &#9734 &#9734 &#9734</option>
+        <option value="5">&#9734 &#9734 &#9734 &#9734 &#9734</option>
+      </select><br><br>
 
-    <input type="submit" class="add">
-  </form>
+      <input class="submit-button" type="submit" class="add">
+    </form>
+  </div>
 
 </body>
 </html>
