@@ -21,11 +21,16 @@ controller.create = (req, res) => {
 
 
 controller.destroy = (req, res) => {
+  console.log('controller.destroy req.body : ', req.body);
   Comment.destroy(req.params.id)
-  .then((data) => {
+  // .then(() => Comment.deleteComment(req.body.comments.post_id)
+    .then((data) => {
+      res.redirect('/books/'+data.post_id)
+    })
+  // )
+  .catch(err => console.log('error: ', err));
 
-    res.redirect('/books/'+data.post_id)
-  })
+
 };
 
 controller.like = (req, res) => {
