@@ -13,7 +13,9 @@ subcommentsController.create = (sub) => {
     [sub.comment_id, sub.post_id, sub.username, sub.reply]);
 }
 
-subcommentsController.destroy = (id) => {};
+subcommentsController.destroy = (id) => {
+  return db.one(`DELETE FROM subcomments WHERE id = $1 returning post_id`, [id]);
+};
 
 
 module.exports = subcommentsController;

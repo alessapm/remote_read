@@ -68,7 +68,7 @@
                   <p>LIKES: <%= each.likes %></p>
 
                 <div class ='comment-options'>
-                  <form action="/comments/<%= each.id %>?_method=DELETE" method="POST">
+                  <form action="/comments/<%= each.id %>?_method=DELETE&post_id=<%= each.post_id %>" method="POST">
                     <input class="button" type="submit" value="Delete Comment">
                   </form>
 
@@ -88,20 +88,23 @@
                         <input type="text" name="sub[username]"><br>
                         <label for="reply">Reply:</label><br>
                         <input class = 'reply-field' type="text" name="sub[reply]"><br>
-                        <input type="hidden" name="sub[comment_id]" value="<%= comments[0].id %>">
+                        <input type="hidden" name="sub[comment_id]" value="<%= each.id %>">
                         <input type="hidden" name="sub[post_id]" value="<%= books.id %>">
 
                         <input class = 'submit-reply' type="submit" value="submit">
                       </form>
                     </div>
 
-                    <% sub.forEach((subeach) => { %>
-                      <% if (subeach.comment_id) { %>
+                    <% each.subcomments.forEach((subeach) => { %>
+
                       <div class='comment-beta'>
                         <h5> <%= subeach.username %></h5>
                         <p class ='italic'> <%= subeach.reply %></p>
+                        <form method="POST" action="/subcomments/<%= subeach.id %>?_method=DELETE">
+                          <input class="subcomment-delete" type="submit" value="Delete">
+                        </form>
                       </div>
-                      <% } %>
+
                    <% }) %>
                   </div>
                 </div>

@@ -21,13 +21,13 @@ controller.create = (req, res) => {
 
 
 controller.destroy = (req, res) => {
-  console.log('controller.destroy req.body : ', req.body);
+
   Comment.destroy(req.params.id)
-  // .then(() => Comment.deleteComment(req.body.comments.post_id)
-    .then((data) => {
-      res.redirect('/books/'+data.post_id)
+  .then(() => Comment.deleteComment(req.query.post_id)
+    .then(() => {
+      res.redirect('/books/'+req.query.post_id);
     })
-  // )
+  )
   .catch(err => console.log('error: ', err));
 
 
@@ -44,3 +44,5 @@ controller.like = (req, res) => {
 };
 
 module.exports = controller;
+//YOU ARE IN COMMENTS controller.js
+

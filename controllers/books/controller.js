@@ -31,13 +31,17 @@ controller.show = (req, res) => {
     // console.log("data: ", data);
     Comment.findAllById(req.params.id)
      .then(thesecomments => {
-      console.log('hitting the then with these comments, thesecomments: ', thesecomments);
+      // console.log('hitting the then with these comments, thesecomments: ', thesecomments);
         //!!!thesecomments is an array of two objects, not a single object
         Sub.findAllById(req.params.id)
           .then(subcomments => {
             console.log('LOOK HERE subcomments comes back as: ', subcomments)
-            // console.log('these comments: ', thesecomments);
-             res.render('books/show', { books: data, comments: thesecomments, sub: subcomments})
+            thesecomments.forEach((comment) => {
+              comment.subcomments = subcomments.filter(sub => sub.comment_id == comment.id);
+            });
+            console.log('*******');
+            console.log('these comments: ', thesecomments);
+            res.render('books/show', { books: data, comments: thesecomments})
           })
     })
   })
