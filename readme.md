@@ -52,4 +52,6 @@ I would like to be able to edit comments and subcomments.
 
 I would like to make my show page responsive. 
 
+Ideally, I would like to add users and sessions. s
+
 
