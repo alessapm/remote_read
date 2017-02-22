@@ -50,4 +50,6 @@ I would like to have the Ratings in a post be re-calculated every time a comment
 
 I would like to be able to edit comments and subcomments. 
 
+I would like to make my show page responsive. 
+
 

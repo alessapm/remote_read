@@ -81,7 +81,7 @@
                   </div>
 
                   <div class = 'comments-and-add'>
-                    <div class = 'add-reply' data='<%= each.id %>'>
+                    <div class = 'add-reply' id='<%= each.id %>'>
                       <form method="POST" action="/subcomments">
                         <h5>Reply to Comment</h5>
                         <label for="username">Name for reply:</label><br>
@@ -94,18 +94,20 @@
                         <input class = 'submit-reply' type="submit" value="submit">
                       </form>
                     </div>
+                    <div class ="subcomment-area">
 
-                    <% each.subcomments.forEach((subeach) => { %>
+                      <% each.subcomments.forEach((subeach) => { %>
 
-                      <div class='comment-beta'>
-                        <h5> <%= subeach.username %></h5>
-                        <p class ='italic'> <%= subeach.reply %></p>
-                        <form method="POST" action="/subcomments/<%= subeach.id %>?_method=DELETE">
-                          <input class="subcomment-delete" type="submit" value="Delete">
-                        </form>
-                      </div>
+                        <div class='comment-beta'>
+                          <h5> <%= subeach.username %></h5>
+                          <p class ='italic'> <%= subeach.reply %></p>
+                          <form method="POST" action="/subcomments/<%= subeach.id %>?_method=DELETE">
+                            <input class="subcomment-delete" type="submit" value="Delete">
+                          </form>
+                        </div>
+                     <% }) %>
 
-                   <% }) %>
+                   </div>
                   </div>
                 </div>
               <% }) %>

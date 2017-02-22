@@ -102,12 +102,19 @@ textarea {
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 5px;
+  max-height: 136px;
   visibility: hidden;
 
 }
 
 .add-reply label {
   font-size: .65em;
+
+}
+
+.subcomment-area {
+  display: flex;
+  flex-direction: column;
 
 }
 
