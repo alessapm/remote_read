@@ -1,4 +1,5 @@
 -- DATABASE is called remote_read
+BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS subcomments;
 DROP TABLE IF EXISTS comments;
@@ -29,6 +30,12 @@ post_id INTEGER REFERENCES posts(id),
 username VARCHAR(255) NOT NULL,
 reply VARCHAR(500));
 
--- CREATE TABLE users
--- (id BIGSERIAL PRIMARY KEY,
--- username VARCHAR(50));
+CREATE TABLE users
+(id BIGSERIAL PRIMARY KEY,
+first_name VARCHAR(255) NOT NULL,
+username VARCHAR(25) NOT NULL UNIQUE,
+email VARCHAR(255) NOT NULL UNIQUE,
+password_digest VARCHAR(255) NOT NULL
+);
+
+COMMIT;

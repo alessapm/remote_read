@@ -4,6 +4,9 @@ const app = express();
 const logger = require('morgan');
 app.use(logger('dev'));
 
+const session = require('express-session');
+const bcrypt = require('bcrypt');
+
 app.set('view engine', 'ejs');
 
 const path = require('path');
@@ -19,6 +22,13 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-app.listen(process.env.PORT || 3000);
+app.use(session({
+  secret: 'tacocat salsa',
+  resave: false,
+  saveUninitialized: true
+}));
+
 
 app.use(require('./resources'));
+
+app.listen(process.env.PORT || 3000);

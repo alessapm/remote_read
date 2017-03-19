@@ -41,4 +41,24 @@ commentsController.like = (id) => {
   return db.none(`UPDATE comments SET likes = likes + 1 WHERE id = $1`, [id]);
 }
 
+
+
+
+
 module.exports = commentsController;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
