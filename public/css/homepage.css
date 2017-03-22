@@ -1,0 +1,66 @@
+body{
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  /*background-image: url('../img/kazuend-71543.jpg');*/
+  /*background-size: 100% 100%;*/
+  margin: 0;
+}
+
+
+header {
+  height: 150px;
+  text-align: center;
+  background-color: rgba(2,2,2,1);
+  box-shadow: 0 2px 1px rgba(2,2,2,1);
+  color: rgba(240,240,240,1);
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+
+}
+
+h1{
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-size: 2.75em;
+
+}
+
+header a {
+  text-decoration: none;
+  color: white;
+}
+
+header h2 {
+  font-weight: normal;
+}
+
+a {
+  color: rgba(250,76,19,1);
+  /*text-shadow: 1px 1px 3px black;*/
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+}
+
+footer {
+  font-style: none;
+  font-family: 'Raleway', sans-serif;
+  /*color: rgba(245,146,0,1);*/
+  color: black;
+  text-shadow: 1px 1px 3px gray;
+  letter-spacing: 1.5px;
+  text-align: center;
+  align-items: flex-end;
+
+}
+
+.add-new-area a{
+  margin-right: 20px;
+}
+
+
+
+

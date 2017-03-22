@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Browse Groups</title>
+  <link rel="stylesheet" href="">
+</head>
+<body>
+  <div class ='add-new-area'>
+    <a href='/groups/new'>+Add Group</a>
+  </div>
+  <div class = 'all-groups'>
+    <% groups.forEach((group) => { %>
+      <div class="group-area">
+        <h1><%= group.group_name %></h1>
+        <form method="POST" action="/users/:user_id/addGroup">
+          <input type="hidden" value="<%= group.id %>" >
+          <button type="submit" value="Join Group">
+        </form>
+      </div>
+
+    <% }) %>
+  </div>
+</body>
+</html>

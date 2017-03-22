@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Create New Group</title>
+  <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+  <link rel="stylesheet" href="/css/add.css">
+</head>
+<body>
+  <main>
+    <header>
+
+    </header>
+
+    <div id='input-area'>
+    <h2>Create New Group</h2>
+      <form method ="POST" action="/groups">
+        <input type="text" name ="group[group_name]" placeholder="Enter a name for your group"><br>
+        <input type="submit" value="Create Group">
+
+      </form>
+      <a id="has-account" href="/users/login">Not loggedin? Login</a>
+
+    </div>
+
+
+  </main>
+
+</body>
+</html>

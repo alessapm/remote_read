@@ -8,6 +8,7 @@ const Sub = require('../../models/subcomment');
 let controller = {};
 
 controller.index = (req, res) => {
+  console.log(req.session)
   Book.findAll()
   .then(data => res.render('books/index', { books: data }))
   .catch(err => console.log('error: ', err));

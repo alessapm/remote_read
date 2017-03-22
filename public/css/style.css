@@ -4,8 +4,8 @@ body{
   flex-direction: column;
   height: 100%;
   width: 100%;
-  background-image: url('../img/kazuend-71543.jpg');
-  background-size: 100% 100%;
+  /*background-image: url('../img/kazuend-71543.jpg');*/
+  /*background-size: 100% 100%;*/
   margin: 0;
 }
 
@@ -33,12 +33,17 @@ h1{
 
 }
 
+header a {
+  text-decoration: none;
+  color: white;
+}
+
 header h2 {
   font-weight: normal;
 }
 
-a {
-  color: rgba(240,240,240,1);
+.each-text a {
+  color: rgba(250,76,19,1);
   text-shadow: 1px 1px 3px black;
   text-decoration: none;
 }
@@ -70,9 +75,9 @@ footer {
 .add-new-area a {
   font-size: 1.2em;
   font-family: 'Raleway', sans-serif;
-  /*color: rgba(245,146,0,1);*/
-  color: black;
-  text-shadow: 1px 1px 1px black;
+  color: rgba(250,76,19,1);
+  text-shadow: 1px 1px 1px gray;
+  text-decoration: none;
 }
 
 .all-posts {
