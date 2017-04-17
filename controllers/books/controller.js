@@ -15,13 +15,16 @@ controller.index = (req, res) => {
 };
 
 controller.new = (req, res) => {
-  res.render('books/new');
+  console.log('req.params.group_id: ', req.params.group_id);
+  console.log('^^req.session.user: ', req.session.user);
+  res.render('books/new', {group_id: req.params.group_id, user_id: req.session.user.id });
+
 };
 
 controller.create = (req, res) => {
-  // console.log(req.body)
+
   Book.create(req.body.books)
-  .then(() => res.redirect('/books'))
+  .then(() => res.redirect('/groups/' + req.body.books.group_id))
   .catch(err => console.log('error is ', err));
 };
 
@@ -29,7 +32,7 @@ controller.show = (req, res) => {
 
   Book.findById(req.params.id)
   .then((data) => {
-    // console.log("data: ", data);
+
     Comment.findAllById(req.params.id)
      .then(thesecomments => {
       // console.log('hitting the then with these comments, thesecomments: ', thesecomments);
@@ -40,9 +43,10 @@ controller.show = (req, res) => {
             thesecomments.forEach((comment) => {
               comment.subcomments = subcomments.filter(sub => sub.comment_id == comment.id);
             });
-            console.log('*******');
+
             console.log('these comments: ', thesecomments);
-            res.render('books/show', { books: data, comments: thesecomments})
+            console.log('req.session.user: ', req.session.user);
+            res.render('books/show', { books: data, comments: thesecomments, user_id: req.session.user.id})
           })
     })
   })
@@ -57,14 +61,15 @@ controller.edit = (req, res) => {
 };
 
 controller.update = (req, res) => {
+  console.log('req.body.books: ', req.body.books)
   Book.update(req.body.books, req.params.id)
-  .then( data => res.redirect('/books'))
+  .then( data => res.redirect('/groups/' + req.body.books.group_id))
   .catch(err => console.log('error: ', err));
 };
 
 controller.destroy = (req, res) => {
   Book.destroy(req.params.id)
-  .then(data => res.redirect('/books'))
+  .then(data => res.redirect('/groups/' + req.body.books.group_id))
   .catch(err => console.log('error: ', err));
 };
 

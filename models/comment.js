@@ -11,8 +11,8 @@ commentsController.findAllById = (id) => {
 
 commentsController.create = (comment, review) => {
 
-  return db.query(`INSERT INTO comments (post_id, username, rating, review) VALUES ($1, $2, $3, $4)`,
-    [comment.post_id, comment.username, comment.rating, review]);
+  return db.query(`INSERT INTO comments (post_id, user_id, rating, review) VALUES ($1, $2, $3, $4)`,
+    [comment.post_id, comment.user_id, comment.rating, review]);
 };
 
 commentsController.updateRating = (id) => {

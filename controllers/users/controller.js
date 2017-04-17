@@ -45,11 +45,27 @@ controller.create = (req, res) => {
   User.create(req.body.user)
   .then((data) => {
 
-    res.redirect('users/new')
+    res.redirect('/users/new')
   })
   .catch((err) => console.log('error: ', err))
 };
 
+
+controller.joinGroup = (req, res) => {
+  Group.joinGroup(req.params.group_id, req.params.user_id)
+  .then(() => {
+    res.redirect(`/groups/${req.params.group_id}`)
+  })
+  .catch(err => console.log('err: ', err))
+}
+
+controller.leaveGroup = (req, res) => {
+  Group.leaveGroup(req.params.group_id, req.params.user_id)
+  .then(() => {
+    res.redirect(`/dashboard/${req.params.user_id}`)
+  })
+  .catch(err => console.log('leave group err: ', err))
+}
 
 // controller.show = (req, res) => {
 //   Group.findGroupsByUser(req.params.id)

@@ -1,17 +1,22 @@
+// YOU ARE IN GROUPS CONTROLLER
+
 const Group = require('../../models/group');
+const Book = require('../../models/book');
 
 const bcrypt = require('bcrypt');
 
 const controller = {};
 
 controller.new = (req, res) => {
-  res.render('groups/new');
+  res.render('groups/new', { user_id: req.session.user.id});
 };
 
 controller.create = (req, res) => {
+  console.log('create req.body.group: ', req.body.group)
   Group.create(req.body.group)
   .then(() => {
-    console.log('group created')
+    console.log('group created');
+    res.redirect(`/dashboard/${req.session.user.id}`);
   })
   .catch((err) => console.log('error: ', err))
 };
@@ -19,17 +24,20 @@ controller.create = (req, res) => {
 controller.show = (req, res) => {
   Group.findAll()
   .then((data) => {
-    res.render('groups/show', { groups: data })
+    res.render('groups/show', { groups: data, user: req.session.user })
+    console.log('SHOW ALL GROUPS- req.session.user', req.session.user)
   })
   .catch((err) => console.log('error: ', err))
 };
 
 controller.showGroup = (req, res) => {
-  // Books.findBooksByGroupId(req.params.id)
-  // .then((data) => {
-  //   res.render ('users/show', { books: data })
-  // })
-  // .catch(err => console.log('error in findBooks: ', err));
+  Book.findBooksByGroupId(req.params.group_id)
+  .then((data) => {
+    res.render ('groups/showGroup', { books: data, group_id: req.params.group_id });
+
+     console.log('SHOW THIS GROUP- req.session.user', req.session.user)
+  })
+  .catch(err => console.log('error in showGroup: ', err));
 }
 
 

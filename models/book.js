@@ -7,8 +7,9 @@ controller.findAll = () => {
 };
 
 controller.create = (book) => {
-  return db.query(`INSERT INTO posts (title, author, img_url, book_description, rating) VALUES ($1, $2, $3, $4, $5)`,
-    [book.title, book.author, book.img_url, book.book_description, book.rating]);
+  console.log('booooook: ', book);
+  return db.query(`INSERT INTO posts (group_id, user_id, title, author, img_url, book_description, rating) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+    [book.group_id, book.user_id, book.title, book.author, book.img_url, book.book_description, book.rating]);
 };
 
 controller.findById = (id) => {
@@ -22,5 +23,9 @@ controller.update = (book, id) => {
 controller.destroy = (id) => {
   return db.none(`DELETE FROM posts WHERE id = $1`, [id]);
 };
+
+controller.findBooksByGroupId = (group_id) => {
+  return db.manyOrNone(`SELECT * FROM posts WHERE group_id = $1`, [group_id]);
+}
 
 module.exports = controller;

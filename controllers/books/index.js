@@ -8,7 +8,7 @@ const commentController = require('../comments/controller')
 const subController = require('../subcomments/controller')
 
 router.get('/', controller.index);
-router.get ('/new', controller.new);
+router.get ('/new/:group_id', controller.new);
 router.get('/:id', controller.show);
 router.get('/:id/edit', controller.edit);
 

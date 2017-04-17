@@ -16,7 +16,9 @@
     <div id='input-area'>
     <h2>Create New Group</h2>
       <form method ="POST" action="/groups">
-        <input type="text" name ="group[group_name]" placeholder="Enter a name for your group"><br>
+        <input type="text" name="group[group_name]" placeholder="Enter a name for your group"><br>
+        <input type="text" name="group[group_description]" placeholder="Enter a description for your group"><br>
+        <input type="hidden" name="group[created_by]" value="<%= user_id %>"><br>
         <input type="submit" value="Create Group">
 
       </form>

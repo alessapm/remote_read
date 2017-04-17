@@ -4,14 +4,14 @@ const controller = {};
 
 controller.getGroupsByUserId = (req, res) => {
   Group.getGroupsByUserId(req.params.user_id)
-  .then((ids) => {
-    Group.getGroupInfoById(ids.group_id)
-    .then((group) => {
-      res.render ('dashboard/dashboard', {groups: group})
-    })
+    .then((data) => {
+      res.render ('dashboard/dashboard', {groups: data, user_id: req.session.user.id});
+      console.log('req.session.user', req.session.user);
 
-  })
+      console.log('898989 data: ', data)
+    })
   .catch(err => console.log('error in getGroupsByUserId: ', err));
+
 }
 
 

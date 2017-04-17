@@ -8,7 +8,9 @@ const session = require('express-session');
 const bcrypt = require('bcrypt');
 
 app.set('view engine', 'ejs');
+app.set('views', './views');
 
+// sets up public folder
 const path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -24,7 +26,7 @@ app.use(bodyParser.json());
 
 app.use(session({
   secret: 'tacocat salsa',
-  resave: false,
+  resave: true,
   saveUninitialized: true
 }));
 

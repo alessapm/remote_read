@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="">
+</head>
+<% include ../partials/nav %>
+<body>
+  <h1>Book Selections:</h1>
+  <a href="/books/new/<%= group_id %>">+Add Book</a>
+  <div class ='post-area'>
+    <div class = 'all-posts'>
+    <% books.forEach((each) => { %>
+      <div class = 'each-post'>
+        <div class='each-photo'>
+          <a href = '/books/<%= each.id %>'>
+            <img src='<%= each.img_url %>' alt= '<%= each.title %>'>
+          </a>
+        </div>
+        <div class='each-text'>
+          <a href = '/books/<%= each.id %>' class='title-href'>
+            <h2><%= each.title %></h2>
+          </a>
+          <p><%= each.author %></p>
+          <p>&#9734 Rating: <%= each.rating %></p>
+          <div class='book-description'>
+            <p><%= each.book_description %></p>
+            <br>
+          </div>
+          <p>Comments:<span> <%= each.num_comments %></span></p>
+        </div>
+      </div>
+    <% }) %>
+    </div>
+  </div>
+
+</body>
+</html>

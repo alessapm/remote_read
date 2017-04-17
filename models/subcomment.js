@@ -9,8 +9,8 @@ subcommentsController.findAllById = (id) => {
 };
 
 subcommentsController.create = (sub) => {
-  return db.query(`INSERT INTO subcomments (comment_id, post_id, username, reply) VALUES ($1, $2, $3, $4)`,
-    [sub.comment_id, sub.post_id, sub.username, sub.reply]);
+  return db.query(`INSERT INTO subcomments (comment_id, post_id, user_id, reply) VALUES ($1, $2, $3, $4)`,
+    [sub.comment_id, sub.post_id, sub.user_id, sub.reply]);
 }
 
 subcommentsController.destroy = (id) => {

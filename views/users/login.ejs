@@ -12,13 +12,14 @@
 
 </header>
   <div id="input-area">
-    <h2>Login</h2>
+    <h2>Login &#128214</h2>
     <form method="POST" action="/users/login">
       <input type="email" name="user[email]" placeholder="email"><br>
       <input type="password" name="user[password]" placeholder="password"><br>
       <input type="submit" value="Login">
     </form>
   </div>
+  <a href="/users/new">Signup</a>
 
   <% if (message) { %>
     <p><%= message %></p>

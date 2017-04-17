@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   let replyButton = document.querySelectorAll('.dom-reply');
+  let navButton = document.querySelector('.menu-icon');
+  let nav = document.querySelector('.menu');
+
+
+  navButton.addEventListener('click', function(){
+    nav.classList.toggle('show-menu');
+    console.log('nav icon pressed');
+  });
 
 
 replyButton.forEach((reply) => {
@@ -19,6 +27,8 @@ replyButton.forEach((reply) => {
 
   });
 });
+
+
 
 
 

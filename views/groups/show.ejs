@@ -6,6 +6,7 @@
   <title>Browse Groups</title>
   <link rel="stylesheet" href="">
 </head>
+<% include ../partials/nav %>
 <body>
   <div class ='add-new-area'>
     <a href='/groups/new'>+Add Group</a>
@@ -14,9 +15,10 @@
     <% groups.forEach((group) => { %>
       <div class="group-area">
         <h1><%= group.group_name %></h1>
-        <form method="POST" action="/users/:user_id/addGroup">
+        <p><%= group.group_description %></p>
+        <form method="POST" action="/users/<%= user.id %>/groups/<%= group.id %>">
           <input type="hidden" value="<%= group.id %>" >
-          <button type="submit" value="Join Group">
+          <button type="submit">Join Group</button>
         </form>
       </div>
 

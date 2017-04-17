@@ -12,6 +12,8 @@ router.get('/login', controller.login);
 router.post('/', controller.create);
 router.post('/login', controller.process_login);
 
+router.post('/:user_id/groups/:group_id', controller.joinGroup);
+router.delete('/:user_id/groups/:group_id', controller.leaveGroup);
 // router.get('/:id', AuthService.restrict, controller.show);
 
 

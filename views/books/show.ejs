@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class ='back'>
-      <a href='/books/'> &#8592 Back to all books</a>
+      <a href='/groups/<%= books.group_id %>'> &#8592 Back to group</a>
     </div>
   <div class = 'each-post'>
       <div class ='book-post'>
@@ -42,8 +42,7 @@
           <div class = "add-comment">
             <form action="/comments" method="POST">
               <h4>Add Comment:</h4>
-              <label for="name">Name to display with comment:</label><br>
-              <input type="text" name="comments[username]"><br><br>
+
               <label for="rating">Rating:</label>
               <select name="comments[rating]">
                 <option value="0">0</option>
@@ -55,6 +54,7 @@
               </select><br><br>
               <textarea name="comments[review]" placeholder="write review (optional)"></textarea><br>
               <input type="hidden" name="comments[post_id]" value="<%= books.id %>">
+              <input type="hidden" name="comments[user_id]" value="<%= user_id %>">
               <input class='button' type="submit" value ="Add Comment">
             </form>
           </div>
@@ -63,7 +63,7 @@
             <div class='all-comments'>
               <% comments.forEach((each) => { %>
                 <div class = 'comment-alpha'>
-                  <h4> <%= each.username %></h4>
+                  <h4> user <%= each.user_id %> says, </h4>
                   <p>&#9734 Rating: <%= each.rating %></p>
                   <p> <%- each.review %></p>
                   <p>LIKES: <%= each.likes %></p>
@@ -85,12 +85,11 @@
                     <div class = 'add-reply' id='<%= each.id %>'>
                       <form method="POST" action="/subcomments">
                         <h5>Reply to Comment</h5>
-                        <label for="username">Name for reply:</label><br>
-                        <input type="text" name="sub[username]"><br>
                         <label for="reply">Reply:</label><br>
                         <input class = 'reply-field' type="text" name="sub[reply]"><br>
                         <input type="hidden" name="sub[comment_id]" value="<%= each.id %>">
                         <input type="hidden" name="sub[post_id]" value="<%= books.id %>">
+                        <input type="hidden" name="sub[user_id]" value="<%= user_id %>">
 
                         <input class = 'submit-reply' type="submit" value="submit">
                       </form>
@@ -100,7 +99,7 @@
                       <% each.subcomments.forEach((subeach) => { %>
 
                         <div class='comment-beta'>
-                          <h5> <%= subeach.username %></h5>
+                          <h5> reply from <%= subeach.user_id %>:</h5>
                           <p class ='italic'> <%= subeach.reply %></p>
                           <form method="POST" action="/subcomments/<%= subeach.id %>?_method=DELETE">
                             <input class="subcomment-delete" type="submit" value="Delete">
