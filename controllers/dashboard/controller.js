@@ -5,7 +5,7 @@ const controller = {};
 controller.getGroupsByUserId = (req, res) => {
   Group.getGroupsByUserId(req.params.user_id)
     .then((data) => {
-      res.render ('dashboard/dashboard', {groups: data, user_id: req.session.user.id});
+      res.render ('dashboard/dashboard', {groups: data, user_id: req.session.user.id, session: req.session});
       console.log('req.session.user', req.session.user);
 
       console.log('898989 data: ', data)

@@ -8,16 +8,16 @@ const Sub = require('../../models/subcomment');
 let controller = {};
 
 controller.index = (req, res) => {
-  console.log(req.session)
+  console.log('********** req.session: ', req.session)
   Book.findAll()
-  .then(data => res.render('books/index', { books: data }))
+  .then(data => res.render('books/index', { books: data, session: req.session }))
   .catch(err => console.log('error: ', err));
 };
 
 controller.new = (req, res) => {
   console.log('req.params.group_id: ', req.params.group_id);
   console.log('^^req.session.user: ', req.session.user);
-  res.render('books/new', {group_id: req.params.group_id, user_id: req.session.user.id });
+  res.render('books/new', {group_id: req.params.group_id, user_id: req.session.user.id, session: req.session });
 
 };
 
@@ -46,7 +46,7 @@ controller.show = (req, res) => {
 
             console.log('these comments: ', thesecomments);
             console.log('req.session.user: ', req.session.user);
-            res.render('books/show', { books: data, comments: thesecomments, user_id: req.session.user.id})
+            res.render('books/show', { books: data, comments: thesecomments, user_id: req.session.user.id, session: req.session})
           })
     })
   })
@@ -56,20 +56,21 @@ controller.show = (req, res) => {
 
 controller.edit = (req, res) => {
   Book.findById(req.params.id)
-  .then(data => res.render('books/edit',{ books: data } ))
+  .then(data => res.render('books/edit',{ books: data, session: req.session } ))
   .catch(err => console.log('err: ', err));
 };
 
 controller.update = (req, res) => {
   console.log('req.body.books: ', req.body.books)
-  Book.update(req.body.books, req.params.id)
+  Book.update(req.body.books, req.params.book_id)
   .then( data => res.redirect('/groups/' + req.body.books.group_id))
   .catch(err => console.log('error: ', err));
 };
 
 controller.destroy = (req, res) => {
-  Book.destroy(req.params.id)
-  .then(data => res.redirect('/groups/' + req.body.books.group_id))
+  console.log('in destroy, req.params.group_id: ', req.params.group_id)
+  Book.destroy(req.params.book_id)
+  .then(data => res.redirect('/groups/' + req.params.group_id))
   .catch(err => console.log('error: ', err));
 };
 

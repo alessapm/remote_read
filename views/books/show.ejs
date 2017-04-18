@@ -9,7 +9,9 @@
   <link type="text/css" rel="stylesheet" href="/css/hover-css.css"  />
   <script src= '/js/show.js'></script>
 </head>
+
 <body>
+  <% include ../partials/nav %>
   <div class ='back'>
       <a href='/groups/<%= books.group_id %>'> &#8592 Back to group</a>
     </div>
@@ -30,7 +32,7 @@
             <form action="/books/<%= books.id %>/edit" method="GET">
               <input class = 'edit-button' type="submit" value="&#9998">
             </form>
-            <form action="/books/<%= books.id %>?_method=DELETE" method="POST">
+            <form action="/books/<%= books.group_id %>/<%= books.id %>?_method=DELETE" method="POST">
               <input class ='delete-button' type="submit" value="&#10006">
             </form>
           </div>

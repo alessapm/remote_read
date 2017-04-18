@@ -11,10 +11,10 @@
     <h1>Edit Book</h1>
   </header>
    <div class ='back'>
-      <a href='/books/'> &#8592 Back to all books</a>
+      <a href='/books/<%= books.id %>'> &#8592 Back to book</a>
     </div>
     <div class='form-area'>
-      <form method="POST" action="/books/<%= books.id %>?_method=PUT">
+      <form method="POST" action="/books/<%= books.group_id %>/<%= books.id %>?_method=PUT">
         <label for="title">Title:</label><br>
         <input type="text" name="books[title]" value="<%= books.title %>"><br><br>
 

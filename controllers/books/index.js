@@ -13,11 +13,11 @@ router.get('/:id', controller.show);
 router.get('/:id/edit', controller.edit);
 
 router.post('/', controller.create);
-router.put('/:id', controller.update);
+router.put('/:group_id/:book_id', controller.update);
 router.post('/:id', commentController.create);
 // router.post('/:id/comment', subController.create);
 
-router.delete('/:id', controller.destroy);
+router.delete('/:group_id/:book_id', controller.destroy);
 
 
 module.exports = router;

@@ -6,11 +6,18 @@
     </div>
     <div class="menu">
       <ul>
-
+        <% if (session.user) { %>
           <li><a href="/">Home</a></li>
           <li><a href="/groups">Find Groups</a></li>
+          <li><a href="/books">Popular selections</a></li>
+          <li><a href="/dashboard/<%= session.user.id %>">My groups</a></li>
+          <li><form action="/users/logout" method="POST"><input type="submit" value="Logout"/></form></li>
+        <% } else { %>
+          <li><a href="/">Home</a></li>
+          <li><a href="/groups">Find Groups</a></li>
+          <li><a href="/books">Popular selections</a></li>
           <li><a href="/users/login">Login</a></li>
-
+        <% } %>
       </ul>
     </div>
   </nav>

@@ -11,6 +11,7 @@ router.get('/login', controller.login);
 
 router.post('/', controller.create);
 router.post('/login', controller.process_login);
+router.post('/logout', controller.logout);
 
 router.post('/:user_id/groups/:group_id', controller.joinGroup);
 router.delete('/:user_id/groups/:group_id', controller.leaveGroup);

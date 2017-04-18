@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Remote Read</title>
+  <title>Remote Reader</title>
 
   <!--Import Google Icon Font-->
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -21,19 +21,18 @@
 
   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script> -->
   <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
-
+  <script src= '/js/show.js'></script>
 
 </head>
 <body>
-
+  <% include ../partials/nav %>
   <header>
-    <h1><a class="title" href="/">Remote Read</a></h1>
+    <h1>Remote Reader</h1>
     <h2>Digital Book Club</h2>
   </header>
+
   <div id="layer">
-    <div class ='add-new-area'>
-      <a href='/books/new'>+Add Book</a>
-    </div>
+
   <div class ='post-area'>
     <div class = 'all-posts'>
     <% books.forEach((each) => { %>

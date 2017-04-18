@@ -19,7 +19,7 @@ controller.login = (req, res) => {
   //   error.message = 'Your email or password is incorrect. Please login again.'
   // };
 
-  res.render('users/login', { message: error.message })
+  res.render('users/login', { message: error.message, session: req.session })
 };
 
 controller.process_login = (req, res) => {
@@ -40,6 +40,11 @@ controller.process_login = (req, res) => {
     }
   })
 };
+
+controller.logout = (req, res) => {
+  req.session.user = null;
+  res.redirect('/');
+}
 
 controller.create = (req, res) => {
   User.create(req.body.user)

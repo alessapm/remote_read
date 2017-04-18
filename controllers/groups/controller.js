@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt');
 const controller = {};
 
 controller.new = (req, res) => {
-  res.render('groups/new', { user_id: req.session.user.id});
+  res.render('groups/new', { user_id: req.session.user.id, session: req.session});
 };
 
 controller.create = (req, res) => {
@@ -24,7 +24,7 @@ controller.create = (req, res) => {
 controller.show = (req, res) => {
   Group.findAll()
   .then((data) => {
-    res.render('groups/show', { groups: data, user: req.session.user })
+    res.render('groups/show', { groups: data, user: req.session.user, session: req.session })
     console.log('SHOW ALL GROUPS- req.session.user', req.session.user)
   })
   .catch((err) => console.log('error: ', err))
@@ -33,7 +33,7 @@ controller.show = (req, res) => {
 controller.showGroup = (req, res) => {
   Book.findBooksByGroupId(req.params.group_id)
   .then((data) => {
-    res.render ('groups/showGroup', { books: data, group_id: req.params.group_id });
+    res.render ('groups/showGroup', { books: data, group_id: req.params.group_id, session: req.session });
 
      console.log('SHOW THIS GROUP- req.session.user', req.session.user)
   })
