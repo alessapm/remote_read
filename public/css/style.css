@@ -6,7 +6,8 @@ body{
   width: 100%;
   margin: 0;
   /*background-color: rgba(255,255,255,1);*/
-  background-color: rgba(254,203,255,.6);
+/*  background-color: rgba(254,203,255,.1);*/
+/*background-color: rgba(84,85,235,.1);*/
   text-decoration: none;
 }
 
@@ -14,16 +15,14 @@ body{
   position: relative;
   height: 100%;
   width: 100%;
-  /*background-color: rgba(255,255,255,.5)*/
+
 }
 
 header {
-  /*height: 50px;*/
   color: #5F078A;
-  margin-bottom: 150px;
   padding: 0;
-  /*display: flex;*/
   align-items: flex-end;
+  margin-left: 20px;
 }
 
 h1{
@@ -53,17 +52,13 @@ header h2 {
   text-decoration: none;
 }
 
-footer {
-  font-style: none;
-  font-family: 'Raleway', sans-serif;
-  /*color: rgba(245,146,0,1);*/
-  color: black;
-  text-shadow: 1px 1px 3px gray;
-  letter-spacing: 1.5px;
+h3 {
   text-align: center;
-  align-items: flex-end;
-
+  font-size: 4rem;
+  color: #5F078A;
+  font-family: 'Dancing Script', cursive;
 }
+
 
 .post-area {
   display: flex;
@@ -91,13 +86,16 @@ footer {
   align-content: space-between;
   /*border: 2px blue solid;*/
   width: 1080px;
-  /*padding-left: 15%;*/
+  padding: 80px;
+  margin-bottom: 80px;
+  border-radius: 5px;
+  background-color: rgba(122,78,227,.25);
 }
 
 .each-post {
   display: flex;
   border: 1px solid #5F078A;
-  border-radius: 10px;
+  border-radius: 5px;
   max-width: 500px;
   height: 300px;
   margin-bottom: 70px;
@@ -108,8 +106,8 @@ footer {
   height: 300px;
   width: 200px;
   background-size: cover;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .each-text {
@@ -117,7 +115,11 @@ footer {
   padding-right: 20px;
   height: 300px;
   width: 250px;
- color: #5F078A;
+ color:  #5F078A;
+
+ background-color: white;
+ border-top-right-radius: 5px;
+border-bottom-right-radius: 5px;
 
 }
 
@@ -135,7 +137,7 @@ footer {
 
 nav {
   width: 30px;
-  position: fixed;
+  /*position: fixed;*/
   top: 10px;
   left: calc(100% - 45px);
 }
@@ -152,7 +154,7 @@ nav li {
 
 nav li a {
   text-decoration: none;
-  color: rgba(255,255,255,1);
+  color: #5F078A;
 }
 
 
@@ -184,11 +186,21 @@ nav li a {
   width: 150px;
   height: 200px;
   top: 30px;
-  left: calc(100% - 150px);
+  left: calc(100% - 170px);
   z-index: 2;
-  background-color: rgba(68,5,99,.75);
-  text-align: center;
+  color: rgba(68,5,99,.75);
+  text-align: right;
+
 }
 
+.show-menu input {
+  text-decoration: none;
+  color: #5F078A;
+  border: none;
+  background-color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
 
 
