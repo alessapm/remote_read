@@ -3,27 +3,40 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Remote Read</title>
-  <link rel="stylesheet" href="">
+  <title>Remote Reader</title>
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/css/style.css"  media="screen,projection"/>
+  <script src= '/js/show.js'></script>
 </head>
 
 <body>
   <% include ../partials/nav %>
-  <div class ='add-new-area'>
-    <a href='/'>Home</a>
-  </div>
-  <div class = 'all-groups'>
-    <% groups.forEach((group) => { %>
-      <div class="group-area">
-        <h1><a href="/groups/<%= group.id %>"><%= group.group_name %></a></h1>
-        <form method="POST" action="/users/<%= user_id %>/groups/<%= group.id %>?_method=DELETE">
-          <input type="hidden" value="<%= group.id %>">
-          <button type="submit">Leave Group</button>
-        </form>
-      </div>
+  <header>
+    <h1><a class="title" href="/">Remote Reader</a></h1>
+    <h2>Digital Book Club</h2>
+  </header>
 
-    <% }) %>
+  <div class="dashboard-main">
+    <div class="all-posts">
+      <h3 id="mygroups">My Groups</h3>
+      <div class = 'all-groups'>
+        <% groups.forEach((group) => { %>
+          <div class="group-area">
+            <h1><a href="/groups/<%= group.id %>"><%= group.group_name %></a></h1>
+            <form method="POST" action="/users/<%= user_id %>/groups/<%= group.id %>?_method=DELETE">
+              <input type="hidden" value="<%= group.id %>">
+              <div class="button-hover">
+                <button type="submit">X</button>
+                <h2>Leave Group</h2>
+              </div>
+            </form>
+          </div>
+
+        <% }) %>
+      </div>
+    </div>
   </div>
+
 </body>
 
 </html>

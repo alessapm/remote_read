@@ -4,25 +4,28 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>New Book Club</title>
-  <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
-  <link rel="stylesheet" href="/css/add.css">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/css/style.css"  media="screen,projection"/>
+  <script src= '/js/show.js'></script>
 </head>
 <body>
-  <main>
+  <% include ../partials/nav %>
     <header>
-
+      <h1>Remote Reader</h1>
+      <h2>Digital Book Club</h2>
     </header>
+  <main>
 
-    <div id='input-area'>
+    <div class="input-area">
     <h2>Create New Book Club</h2>
       <form method ="POST" action="/groups">
         <input type="text" name="group[group_name]" placeholder="Enter a name for your group"><br>
-        <input type="text" name="group[group_description]" placeholder="Enter a description for your group"><br>
+        <input id="book-description" type="text" name="group[group_description]" placeholder="Enter a description for your group"><br>
         <input type="hidden" name="group[created_by]" value="<%= user_id %>"><br>
         <input type="submit" value="Create Group">
 
       </form>
-      <a id="has-account" href="/users/login">Not loggedin? Login</a>
+      <a class="has-account" href="/users/login">Not loggedin? Login</a>
 
     </div>
 

@@ -4,16 +4,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Add New Book</title>
-  <link rel="stylesheet" href="/css/add.css">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/css/style.css"  media="screen,projection"/>
+  <script src= '/js/show.js'></script>
 </head>
 <body>
+  <% include ../partials/nav %>
   <header>
-    <h1>Add New Book</h1>
+    <h1>Remote Reader</h1>
+    <h2>Digital Book Club</h2>
   </header>
-  <div class ='back'>
+  <div class ='add-new-area'>
     <a href='/books/'> &#8592 Back to all books</a>
   </div>
-  <div class ="form-area">
+  <div class ="input-area">
+    <h2>Add Book</h2>
     <form method="POST" action="/books">
       <label for="title">Title:</label><br>
       <input type="text" name="books[title]"><br><br>
@@ -21,7 +26,7 @@
       <label for="author">Author:</label><br>
       <input type="text" name="books[author]"><br><br>
 
-      <label for="img_url">Image link:</label><br>
+      <label for="img_url">Image link URL:(optional)</label><br>
       <input type="text" name="books[img_url]"><br><br>
 
       <label for="book_description">Description:</label><br>
