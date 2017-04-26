@@ -3,47 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <link href="https://fonts.googleapis.com/css?family=Almendra+Display|Bungee+Outline|Codystar:300|Coming+Soon|Faster+One|Homemade+Apple||Monofett|Montserrat|" rel="stylesheet">
-  <link rel="stylesheet" href="/css/show.css">
-  <link type="text/css" rel="stylesheet" href="/css/hover-css.css"  />
+  <title>Remote Reader</title>
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/css/style.css"  media="screen,projection"/>
   <script src= '/js/show.js'></script>
 </head>
 
 <body>
   <% include ../partials/nav %>
+  <header>
+    <h1>Remote Reader</h1>
+    <h2>Digital Book Club</h2>
+  </header>
   <div class ='add-new-area'>
       <a href='/groups/<%= books.group_id %>'> &#8592 Back to group</a>
-    </div>
-  <div class = 'each-post'>
-      <div class ='book-post'>
-        <div class='each-photo'>
-            <img src='<%= books.img_url %>' alt= '<%= books.title %>'>
-        </div>
-        <div class='each-text'>
-          <h2><%= books.title %></h2>
-
-          <p><%= books.author %></p>
-          <p>&#9734 Rating: <%= books.rating %></p>
-          <p class ='italic'><%= books.book_description %></p>
-          <br>
-
-          <div class ='edit-delete'>
-            <form action="/books/<%= books.id %>/edit" method="GET">
-              <input class = 'edit-button' type="submit" value="&#9998">
-            </form>
-            <form action="/books/<%= books.group_id %>/<%= books.id %>?_method=DELETE" method="POST">
-              <input class ='delete-button' type="submit" value="&#10006">
-            </form>
+  </div>
+  <div class="show-book-main">
+    <div class = 'each-book'>
+        <div class ='book-details'>
+          <div class='book-photo'>
+              <img src='<%= books.img_url %>' alt= '<%= books.title %>'>
           </div>
+          <div class='book-text'>
+            <h2><%= books.title %></h2>
 
+            <p><%= books.author %></p>
+            <p>&#9734 Rating: <%= books.rating %></p>
+            <p class ='italic'><%= books.book_description %></p>
+            <br>
+          </div>
+          <div class ='edit-delete'>
+              <form action="/books/<%= books.id %>/edit" method="GET">
+                <input class = 'edit-button' type="submit" value="&#9998">
+              </form>
+              <form action="/books/<%= books.group_id %>/<%= books.id %>?_method=DELETE" method="POST">
+                <input class ='delete-button' type="submit" value="&#10006">
+              </form>
+          </div>
         </div>
-      </div>
 
         <div class="comment-area">
           <div class = "add-comment">
             <form action="/comments" method="POST">
-              <h4>Add Comment:</h4>
+              <h3>Add Comment:</h3>
 
               <label for="rating">Rating:</label>
               <select name="comments[rating]">
@@ -83,10 +85,10 @@
                   </div>
                   </div>
 
-                  <div class = 'comments-and-add'>
+                  <div class = 'replies'>
                     <div class = 'add-reply' id='<%= each.id %>'>
                       <form method="POST" action="/subcomments">
-                        <h5>Reply to Comment</h5>
+                        <h3>Reply to Comment</h3>
                         <label for="reply">Reply:</label><br>
                         <input class = 'reply-field' type="text" name="sub[reply]"><br>
                         <input type="hidden" name="sub[comment_id]" value="<%= each.id %>">
@@ -119,7 +121,8 @@
 
         </div>
 
-      </div>
+    </div>
+  </div>
 </body>
 </html>
 

@@ -50,6 +50,11 @@ header {
   }
 }
 
+
+input:active {
+  border: none;
+}
+
 .each-text {
   a{
     color: $primary-color;
@@ -57,6 +62,7 @@ header {
     text-decoration: none;
   }
 }
+
 
 h3 {
   text-align: center;
@@ -264,6 +270,8 @@ nav {
     cursor: pointer;
   }
 
+
+
   a {
     background-color: $white;
   }
@@ -412,8 +420,109 @@ nav {
   height: 100px;
 }
 
+.new-book-main {
+  display: flex;
+  justify-content: center;
+
+  .input-area {
+    height: 750px;
+  }
+}
+
+.show-book-main {
+  display: flex;
+  justify-content: center;
+
+  .each-post {
+    width: 100%;
+  }
+
+  h3 {
+    width: 150px;
+    font-size: 1.5rem;
+  }
+}
+.each-book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: calc(90%-160px);
+  background-color: $backdrop-color;
+  border-radius: $radius;
+  border: $section-border;
+  padding: 80px;
+
+  .button {
+    height: 30px;
+    background-color: $primary-color;
+    border: none;
+    border-radius: $radius;
+    color: $white;
+    cursor: pointer;
+    font-size: .9rem;
+    padding-left: 15px;
+    padding-right: 15px;
+
+  }
+
+  button, .submit-reply, .subcomment-delete {
+    @extend .button;
+  }
+}
 
 
+.book-details {
+  width: 800px !important;
+  display: flex;
+  color: $primary-color;
 
+  img {
+    margin-right: 80px;
+  }
+}
 
+.comment-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
+}
+
+.add-comment {
+  color: $primary-color;
+  form {
+    margin-bottom: 80px;
+  }
+
+  textarea {
+    height: 175px;
+    width: 100%;
+  }
+}
+
+.comments {
+
+  color: $primary-color;
+  h4 {
+    font-size: 1.2rem;
+  }
+}
+
+.replies {
+
+  margin-left: 10%;
+}
+
+.like-and-reply {
+  display: flex;
+}
+
+.reply-field {
+  width: 90%;
+  height: 75px;
+}
+
+.comment-beta {
+  margin-left: 10%;
+}

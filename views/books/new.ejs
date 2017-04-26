@@ -17,36 +17,37 @@
   <div class ='add-new-area'>
     <a href='/books/'> &#8592 Back to all books</a>
   </div>
-  <div class ="input-area">
-    <h2>Add Book</h2>
-    <form method="POST" action="/books">
-      <label for="title">Title:</label><br>
-      <input type="text" name="books[title]"><br><br>
+  <div class="new-book-main">
+    <div class ="input-area">
+      <h2>Add Book</h2>
+      <form method="POST" action="/books">
+        <label for="title">Title:</label><br>
+        <input type="text" name="books[title]"><br><br>
 
-      <label for="author">Author:</label><br>
-      <input type="text" name="books[author]"><br><br>
+        <label for="author">Author:</label><br>
+        <input type="text" name="books[author]"><br><br>
 
-      <label for="img_url">Image link URL:(optional)</label><br>
-      <input type="text" name="books[img_url]"><br><br>
+        <label for="img_url">Image link URL: (optional)</label><br>
+        <input type="text" name="books[img_url]"><br><br>
 
-      <label for="book_description">Description:</label><br>
-      <input type="text" name="books[book_description]"><br><br>
+        <label for="book_description">Description:</label><br>
+        <input type="text" name="books[book_description]"><br><br>
 
-      <label for="rating">Rating:</label>
-      <select name="books[rating]">
-        <option value="0">0</option>
-        <option value="1">&#9734</option>
-        <option value="2">&#9734 &#9734</option>
-        <option value="3">&#9734 &#9734 &#9734</option>
-        <option value="4">&#9734 &#9734 &#9734 &#9734</option>
-        <option value="5">&#9734 &#9734 &#9734 &#9734 &#9734</option>
-      </select><br><br>
+        <label for="rating">Rating:</label>
+        <select name="books[rating]">
+          <option value="0">0</option>
+          <option value="1">&#9734</option>
+          <option value="2">&#9734 &#9734</option>
+          <option value="3">&#9734 &#9734 &#9734</option>
+          <option value="4">&#9734 &#9734 &#9734 &#9734</option>
+          <option value="5">&#9734 &#9734 &#9734 &#9734 &#9734</option>
+        </select><br><br>
 
-      <input type="hidden" name="books[user_id]" value="<%= user_id %>">
-      <input type="hidden" name="books[group_id]" value="<%= group_id %>">
-      <input class="submit-button" type="submit" class="add">
-    </form>
+        <input type="hidden" name="books[user_id]" value="<%= user_id %>">
+        <input type="hidden" name="books[group_id]" value="<%= group_id %>">
+        <input class="submit-button" type="submit" class="add">
+      </form>
+    </div>
   </div>
-
 </body>
 </html>
