@@ -1,3 +1,6 @@
+* {
+  outline: none; }
+
 body {
   font-family: "Raleway", sans-serif;
   display: flex;
@@ -7,6 +10,9 @@ body {
   margin: 0;
   text-decoration: none;
   background-color: #fafafa; }
+
+button {
+  cursor: pointer; }
 
 main {
   display: flex;
@@ -32,8 +38,8 @@ header {
     padding: 0;
     font-size: 1rem; }
 
-input:active {
-  border: none; }
+input:focus {
+  outline: none; }
 
 .each-text a {
   color: #5F078A;
@@ -58,7 +64,7 @@ h3, .homepage-quotes h4, #mygroups {
   border-radius: 5px; }
 
 .homepage-intro {
-  background-color: rgba(122, 78, 227, 0.25);
+  background-color: rgba(199, 213, 255, 0.55);
   width: 500px !important;
   padding: 20px;
   border-top-left-radius: 5px;
@@ -93,8 +99,7 @@ h3, .homepage-quotes h4, #mygroups {
 
 .add-new-area {
   padding: 20px;
-  font-weight: bold;
-  margin-bottom: 50px; }
+  font-weight: bold; }
   .add-new-area a {
     font-size: 1.2em;
     font-family: "Raleway", sans-serif;
@@ -115,7 +120,7 @@ h3, .homepage-quotes h4, #mygroups {
   margin-top: 80px;
   border-radius: 5px;
   border: 2px double #5F078A;
-  background-color: rgba(122, 78, 227, 0.25); }
+  background-color: rgba(199, 213, 255, 0.55); }
 
 .each-post {
   display: flex;
@@ -143,7 +148,7 @@ h3, .homepage-quotes h4, #mygroups {
   border-bottom-right-radius: 5px; }
 
 .book-description {
-  height: 40%;
+  height: 30%;
   overflow: scroll;
   padding-top: 0px;
   color: #5F078A; }
@@ -207,8 +212,7 @@ nav {
   height: 500px;
   width: 400px;
   padding: 50px 100px;
-  background-color: rgba(122, 78, 227, 0.25);
-  margin-top: 50px;
+  background-color: rgba(199, 213, 255, 0.55);
   border-radius: 5px;
   border: 2px double #5F078A; }
   .input-area h2 {
@@ -235,19 +239,25 @@ nav {
 .dashboard-main, .allGroups-main {
   display: flex;
   justify-content: center; }
+  .dashboard-main .all-posts, .allGroups-main .all-posts {
+    width: 60%;
+    padding: 30px;
+    display: flex;
+    justify-content: center; }
 
 .group-area {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 80px; }
+  margin-bottom: 80px;
+  color: #5F078A; }
   .group-area h1 {
     margin: 0;
-    transition: all .2s linear; }
+    transition: all .1s linear; }
   .group-area a {
     text-decoration: none; }
-  .group-area h1:hover {
-    transform: scale(1.02, 1.02); }
+  .group-area h1:hover a {
+    color: #fafafa; }
   .group-area button {
     height: 30px;
     background-color: #5F078A;
@@ -282,10 +292,11 @@ nav {
   align-items: flex-start;
   border: 2px solid #fafafa;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.55);
   padding: 20px; }
 .allGroups-main .all-posts {
-  margin-top: 0px; }
+  margin-top: 0px;
+  width: 70%; }
 .allGroups-main button {
   margin: 0;
   align-self: flex-end; }
@@ -311,18 +322,20 @@ nav {
   .show-book-main .each-post {
     width: 100%; }
   .show-book-main h3, .show-book-main .homepage-quotes h4, .homepage-quotes .show-book-main h4, .show-book-main #mygroups {
-    width: 150px;
-    font-size: 1.5rem; }
+    width: 100%;
+    font-size: 1.7rem;
+    display: flex; }
 
 .each-book {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(90%-160px);
-  background-color: rgba(122, 78, 227, 0.25);
+  width: 75%;
+  background-color: rgba(199, 213, 255, 0.55);
   border-radius: 5px;
   border: 2px double #5F078A;
-  padding: 80px; }
+  padding: 80px;
+  margin-bottom: 80px; }
   .each-book .button, .each-book button, .each-book .submit-reply, .each-book .subcomment-delete {
     height: 30px;
     background-color: #5F078A;
@@ -333,13 +346,29 @@ nav {
     font-size: .9rem;
     padding-left: 15px;
     padding-right: 15px; }
+  .each-book .submit-button {
+    cursor: pointer; }
 
 .book-details {
-  width: 800px !important;
+  width: 100%;
   display: flex;
   color: #5F078A; }
   .book-details img {
-    margin-right: 80px; }
+    margin-right: 80px;
+    margin-bottom: 10px;
+    height: 475px;
+    width: 300px; }
+
+.edit-button {
+  width: 50px;
+  height: 30px;
+  background-color: #5F078A;
+  color: #fafafa;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer; }
 
 .comment-area {
   width: 100%;
@@ -358,19 +387,26 @@ nav {
 .comments {
   color: #5F078A; }
   .comments h4 {
-    font-size: 1.2rem; }
+    font-size: 1.5rem; }
+
+.add-reply {
+  visibility: hidden; }
 
 .replies {
-  margin-left: 10%; }
+  margin-top: 10px;
+  margin-left: 10%;
+  border-left: 2px double #5F078A;
+  padding-left: 10px; }
+  .replies h4 {
+    margin-top: 15px; }
 
 .like-and-reply {
   display: flex; }
+  .like-and-reply input {
+    margin-right: 10px; }
 
 .reply-field {
-  width: 90%;
-  height: 75px; }
-
-.comment-beta {
-  margin-left: 10%; }
+  width: 95%;
+  height: 30px; }
 
 /*# sourceMappingURL=style.css.map */

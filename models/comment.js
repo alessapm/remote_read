@@ -11,8 +11,8 @@ commentsController.findAllById = (id) => {
 
 commentsController.create = (comment, review) => {
 
-  return db.query(`INSERT INTO comments (post_id, user_id, rating, review) VALUES ($1, $2, $3, $4)`,
-    [comment.post_id, comment.user_id, comment.rating, review]);
+  return db.query(`INSERT INTO comments (post_id, user_id, user_username, rating, review) VALUES ($1, $2, $3, $4, $5)`,
+    [comment.post_id, comment.user_id, comment.user_username, comment.rating, review]);
 };
 
 commentsController.updateRating = (id) => {
@@ -37,7 +37,7 @@ commentsController.destroy = (id) => {
 };
 
 commentsController.like = (id) => {
-  console.log('in comments Controller id= ', id)
+
   return db.none(`UPDATE comments SET likes = likes + 1 WHERE id = $1`, [id]);
 }
 

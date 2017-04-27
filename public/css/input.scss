@@ -1,12 +1,18 @@
 
 $font-stack: 'Raleway', sans-serif;
 $primary-color: #5F078A;
+// $primary-color: #A66889;
+// $primary-color: #421DA6;
 
 $radius: 5px;
 $white: rgba(250,250,250,1);
-$backdrop-color: rgba(122,78,227,.25);
+// $backdrop-color: rgba(122,78,227,.25);
+$backdrop-color: rgba(199,213,255,.55);
 $section-border: 2px double $primary-color;
 
+* {
+  outline: none;
+}
 
 body{
   font-family: $font-stack;
@@ -19,7 +25,12 @@ body{
   background-color: $white;
 }
 
+button {
+  cursor: pointer;
+}
+
 main {
+
   display: flex;
   justify-content: center;
   margin-bottom: 80px;
@@ -51,9 +62,11 @@ header {
 }
 
 
-input:active {
-  border: none;
+input:focus {
+  outline: none;
 }
+
+
 
 .each-text {
   a{
@@ -132,7 +145,7 @@ h3 {
 .add-new-area {
   padding: 20px;
   font-weight: bold;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
 
   a {
     font-size: 1.2em;
@@ -195,7 +208,7 @@ h3 {
 }
 
 .book-description {
-  height: 40%;
+  height: 30%;
   overflow: scroll;
   padding-top: 0px;
   color: $primary-color;
@@ -283,7 +296,7 @@ nav {
   width: 400px;
   padding: 50px 100px;
   background-color: $backdrop-color;
-  margin-top: 50px;
+  // margin-top: 50px;
   border-radius: $radius;
   border: $section-border;
 
@@ -321,9 +334,14 @@ nav {
   display: flex;
   justify-content: center;
 
+  .all-posts {
+    width: 60%;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
 }
-
-
 
 
 .group-area {
@@ -331,10 +349,11 @@ nav {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 80px;
+  color: $primary-color;
 
   h1 {
     margin: 0;
-    transition: all .2s linear;
+    transition: all .1s linear;
   }
 
   a {
@@ -342,7 +361,10 @@ nav {
   }
 
   h1:hover {
-    transform: scale(1.02,1.02);
+    a {
+      color: $white;
+    }
+
   }
 
   button {
@@ -401,6 +423,7 @@ nav {
 
   .all-posts {
     margin-top: 0px;
+    width: 70%;
   }
 
   button {
@@ -438,19 +461,22 @@ nav {
   }
 
   h3 {
-    width: 150px;
-    font-size: 1.5rem;
+    width: 100%;
+    font-size: 1.7rem;
+    display: flex;
+
   }
 }
 .each-book {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: calc(90%-160px);
+  width: 75%;
   background-color: $backdrop-color;
   border-radius: $radius;
   border: $section-border;
   padding: 80px;
+  margin-bottom: 80px;
 
   .button {
     height: 30px;
@@ -465,6 +491,11 @@ nav {
 
   }
 
+  .submit-button {
+    cursor: pointer;
+  }
+
+
   button, .submit-reply, .subcomment-delete {
     @extend .button;
   }
@@ -472,13 +503,29 @@ nav {
 
 
 .book-details {
-  width: 800px !important;
+  width: 100%;
   display: flex;
   color: $primary-color;
 
   img {
     margin-right: 80px;
+    margin-bottom: 10px;
+    height: 475px;
+    width:300px;
   }
+}
+
+.edit-button {
+  width: 50px;
+  height: 30px;
+  background-color: $primary-color;
+  color: $white;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: $radius;
+  margin-bottom: 10px;
+  cursor: pointer;
+
 }
 
 .comment-area {
@@ -505,24 +552,36 @@ nav {
 
   color: $primary-color;
   h4 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 
-.replies {
+.add-reply {
+  visibility: hidden;
+}
 
+.replies {
+  margin-top: 10px;
   margin-left: 10%;
+  border-left: $section-border;
+  padding-left: 10px;
+
+  h4 {
+    margin-top: 15px;
+  }
 }
 
 .like-and-reply {
   display: flex;
+
+  input {
+    margin-right: 10px;
+  }
 }
 
 .reply-field {
-  width: 90%;
-  height: 75px;
+  width: 95%;
+  height: 30px;
 }
 
-.comment-beta {
-  margin-left: 10%;
-}
+

@@ -6,7 +6,7 @@
   <title>Remote Reader</title>
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Raleway" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="/css/style.css"  media="screen,projection"/>
-  <script src= '/js/show.js'></script>
+  <script src= '/js/app.js'></script>
 </head>
 
 <body>
@@ -24,7 +24,8 @@
           <div class='book-photo'>
               <img src='<%= books.img_url %>' alt= '<%= books.title %>'>
           </div>
-          <div class='book-text'>
+          <div class="details-btns">
+             <div class='book-text'>
             <h2><%= books.title %></h2>
 
             <p><%= books.author %></p>
@@ -37,8 +38,9 @@
                 <input class = 'edit-button' type="submit" value="&#9998">
               </form>
               <form action="/books/<%= books.group_id %>/<%= books.id %>?_method=DELETE" method="POST">
-                <input class ='delete-button' type="submit" value="&#10006">
+                <input class ='edit-button' type="submit" value="&#10006">
               </form>
+          </div>
           </div>
         </div>
 
@@ -59,6 +61,7 @@
               <textarea name="comments[review]" placeholder="write review (optional)"></textarea><br>
               <input type="hidden" name="comments[post_id]" value="<%= books.id %>">
               <input type="hidden" name="comments[user_id]" value="<%= user_id %>">
+              <input type="hidden" name="comments[user_username]" value="<%= user_username %>">
               <input class='button' type="submit" value ="Add Comment">
             </form>
           </div>
@@ -67,35 +70,36 @@
             <div class='all-comments'>
               <% comments.forEach((each) => { %>
                 <div class = 'comment-alpha'>
-                  <h4> user <%= each.user_id %> says, </h4>
+                  <h4> <%= each.user_username%> says, </h4>
                   <p>&#9734 Rating: <%= each.rating %></p>
                   <p> <%- each.review %></p>
-                  <p>LIKES: <%= each.likes %></p>
+                  <p>Likes: <%= each.likes %></p>
 
                 <div class ='comment-options'>
-                  <form action="/comments/<%= each.id %>?_method=DELETE&post_id=<%= each.post_id %>" method="POST">
-                    <input class="button" type="submit" value="Delete Comment">
-                  </form>
-
                   <div class ='like-and-reply'>
                     <form method="POST" action="/comments/like/<%= each.post_id %>/<%= each.id %>?_method=PUT">
-                      <input class="button" type="submit" value="LIKE">
+                      <input class="button" type="submit" value="&#9825;">
                     </form>
-                    <button class ='dom-reply button' data='<%= each.id %>'>Reply</button>
+                    <form action="/comments/<%= each.id %>?_method=DELETE&post_id=<%= each.post_id %>" method="POST">
+                      <input class="button" type="submit" value="&#10006">
+                    </form>
+                    <button class="dom-reply" data='<%= each.id %>'>Reply</button>
                   </div>
-                  </div>
+
+
+                </div>
 
                   <div class = 'replies'>
                     <div class = 'add-reply' id='<%= each.id %>'>
                       <form method="POST" action="/subcomments">
-                        <h3>Reply to Comment</h3>
+
                         <label for="reply">Reply:</label><br>
-                        <input class = 'reply-field' type="text" name="sub[reply]"><br>
+                        <textarea class = 'reply-field' name="sub[reply]"></textarea><br>
                         <input type="hidden" name="sub[comment_id]" value="<%= each.id %>">
                         <input type="hidden" name="sub[post_id]" value="<%= books.id %>">
                         <input type="hidden" name="sub[user_id]" value="<%= user_id %>">
-
-                        <input class = 'submit-reply' type="submit" value="submit">
+                        <input type="hidden" name="sub[user_username]" value="<%= user_username %>">
+                        <input class="submit-reply" type="submit" value="submit">
                       </form>
                     </div>
                     <div class ="subcomment-area">
@@ -103,10 +107,10 @@
                       <% each.subcomments.forEach((subeach) => { %>
 
                         <div class='comment-beta'>
-                          <h5> reply from <%= subeach.user_id %>:</h5>
+                          <h4> reply from <%= subeach.user_username %>:</h4>
                           <p class ='italic'> <%= subeach.reply %></p>
                           <form method="POST" action="/subcomments/<%= subeach.id %>?_method=DELETE">
-                            <input class="subcomment-delete" type="submit" value="Delete">
+                            <input class="subcomment-delete" type="submit" value="&#10006">
                           </form>
                         </div>
                      <% }) %>

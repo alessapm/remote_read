@@ -49,8 +49,9 @@ CREATE TABLE comments
 (id BIGSERIAL PRIMARY KEY,
 post_id INTEGER REFERENCES posts(id) ON DELETE CASCADE,
 user_id INTEGER REFERENCES users(id),
+user_username VARCHAR(255) REFERENCES users(username),
 rating INTEGER NOT NULL,
-review VARCHAR(500),
+review TEXT,
 likes INTEGER DEFAULT 0
 );
 
@@ -59,7 +60,8 @@ CREATE TABLE subcomments
 comment_id INTEGER REFERENCES comments(id) ON DELETE CASCADE,
 post_id INTEGER REFERENCES posts(id),
 user_id INTEGER REFERENCES users(id),
-reply VARCHAR(500)
+user_username VARCHAR(255) REFERENCES users(username),
+reply TEXT
 );
 
 COMMIT;

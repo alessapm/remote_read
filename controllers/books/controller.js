@@ -35,8 +35,7 @@ controller.show = (req, res) => {
 
     Comment.findAllById(req.params.id)
      .then(thesecomments => {
-      // console.log('hitting the then with these comments, thesecomments: ', thesecomments);
-        //!!!thesecomments is an array of two objects, not a single object
+
         Sub.findAllById(req.params.id)
           .then(subcomments => {
             console.log('LOOK HERE subcomments comes back as: ', subcomments)
@@ -46,7 +45,7 @@ controller.show = (req, res) => {
 
             console.log('these comments: ', thesecomments);
             console.log('req.session.user: ', req.session.user);
-            res.render('books/show', { books: data, comments: thesecomments, user_id: req.session.user.id, session: req.session})
+            res.render('books/show', { books: data, comments: thesecomments, user_id: req.session.user.id, session: req.session, user_username: req.session.user.username})
           })
     })
   })

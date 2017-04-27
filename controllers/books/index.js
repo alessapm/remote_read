@@ -6,10 +6,12 @@ const router = express.Router();
 const controller = require('./controller');
 const commentController = require('../comments/controller')
 const subController = require('../subcomments/controller')
+const AuthService = require('../../services/auth');
+
 
 router.get('/', controller.index);
 router.get ('/new/:group_id', controller.new);
-router.get('/:id', controller.show);
+router.get('/:id', AuthService.restrict, controller.show);
 router.get('/:id/edit', controller.edit);
 
 router.post('/', controller.create);

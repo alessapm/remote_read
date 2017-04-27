@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 replyButton.forEach((reply) => {
   reply.addEventListener('click', function(e){
 
-    // console.log(e.target.attributes[1].value)
+    console.log('****', e.target.attributes[1].value)
     let numVal = e.target.attributes[1].value
 
     let commentReply = document.getElementById(numVal)

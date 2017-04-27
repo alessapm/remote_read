@@ -16,7 +16,7 @@ controller.create = (req, res) => {
   Group.create(req.body.group)
   .then(() => {
     console.log('group created');
-    res.redirect(`/dashboard/${req.session.user.id}`);
+    res.redirect(`/groups`);
   })
   .catch((err) => console.log('error: ', err))
 };

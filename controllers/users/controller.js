@@ -43,6 +43,7 @@ controller.process_login = (req, res) => {
 
 controller.logout = (req, res) => {
   req.session.user = null;
+  req.session.isAuthenticated = false;
   res.redirect('/');
 }
 
@@ -50,7 +51,7 @@ controller.create = (req, res) => {
   User.create(req.body.user)
   .then((data) => {
 
-    res.redirect('/users/new')
+    res.redirect('/users/login')
   })
   .catch((err) => console.log('error: ', err))
 };
