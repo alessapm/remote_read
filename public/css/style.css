@@ -62,10 +62,14 @@ h3, .homepage-quotes h4, #mygroups {
   width: 90%;
   height: 600px;
   border-radius: 5px; }
+  @media screen and (max-width: 1000px) {
+    .homepage {
+      height: 100%;
+      flex-direction: column-reverse; } }
 
 .homepage-intro {
   background-color: rgba(199, 213, 255, 0.55);
-  width: 500px !important;
+  width: 500px;
   padding: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; }
@@ -78,6 +82,11 @@ h3, .homepage-quotes h4, #mygroups {
     font-size: 1.5rem;
     line-height: 50px;
     color: #5F078A; }
+  @media screen and (max-width: 1000px) {
+    .homepage-intro {
+      width: 100%;
+      padding: 0;
+      padding-top: 50px; } }
 
 .homepage-quotes {
   display: flex;
@@ -89,9 +98,15 @@ h3, .homepage-quotes h4, #mygroups {
     font-size: 3rem;
     width: 100%;
     transition: innerHTML 2s ease 0s; }
+    @media screen and (max-width: 1000px) {
+      .homepage-quotes h4 {
+        font-size: 2rem; } }
 
 .quote-class {
   transition: all 2s ease; }
+  @media screen and (max-width: 1000px) {
+    .quote-class {
+      font-size: 1rem; } }
 
 .post-area {
   display: flex;
@@ -121,6 +136,9 @@ h3, .homepage-quotes h4, #mygroups {
   border-radius: 5px;
   border: 2px double #5F078A;
   background-color: rgba(199, 213, 255, 0.55); }
+  @media screen and (max-width: 500px) {
+    .all-posts {
+      width: 100%; } }
 
 .each-post {
   display: flex;
@@ -129,6 +147,12 @@ h3, .homepage-quotes h4, #mygroups {
   max-width: 500px;
   height: 300px;
   margin-bottom: 70px; }
+  @media screen and (max-width: 500px) {
+    .each-post {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      height: 705px; } }
 
 .each-photo img {
   height: 300px;
@@ -136,6 +160,10 @@ h3, .homepage-quotes h4, #mygroups {
   background-size: cover;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px; }
+  @media screen and (max-width: 500px) {
+    .each-photo img {
+      width: 300px;
+      height: 400px; } }
 
 .each-text {
   padding-left: 30px;
@@ -244,6 +272,9 @@ nav {
     padding: 30px;
     display: flex;
     justify-content: center; }
+    @media screen and (max-width: 500px) {
+      .dashboard-main .all-posts, .allGroups-main .all-posts {
+        width: 100%; } }
 
 .group-area {
   display: flex;
@@ -256,6 +287,9 @@ nav {
     transition: all .1s linear; }
   .group-area a {
     text-decoration: none; }
+    @media screen and (max-width: 500px) {
+      .group-area a {
+        font: 1.5rem; } }
   .group-area h1:hover a {
     color: #fafafa; }
   .group-area button {
@@ -348,6 +382,10 @@ nav {
     padding-right: 15px; }
   .each-book .submit-button {
     cursor: pointer; }
+  @media screen and (max-width: 500px) {
+    .each-book {
+      width: 100%;
+      padding: 0px; } }
 
 .book-details {
   width: 100%;
@@ -358,6 +396,12 @@ nav {
     margin-bottom: 10px;
     height: 475px;
     width: 300px; }
+    @media screen and (max-width: 500px) {
+      .book-details img {
+        margin-right: 0px; } }
+  @media screen and (max-width: 500px) {
+    .book-details {
+      flex-direction: column; } }
 
 .edit-button {
   width: 50px;
@@ -383,6 +427,9 @@ nav {
   .add-comment textarea {
     height: 175px;
     width: 100%; }
+    @media screen and (max-width: 500px) {
+      .add-comment textarea {
+        width: 90%; } }
 
 .comments {
   color: #5F078A; }

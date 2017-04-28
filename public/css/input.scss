@@ -94,11 +94,17 @@ h3 {
   width: 90%;
   height: 600px;
   border-radius: $radius;
+
+  @media screen and (max-width: 1000px) {
+    height: 100%;
+    flex-direction: column-reverse;
+
+  }
 }
 
 .homepage-intro {
   background-color: $backdrop-color;
-  width: 500px !important;
+  width: 500px;
   padding: 20px;
   border-top-left-radius: $radius;
   border-bottom-left-radius: $radius;
@@ -116,6 +122,12 @@ h3 {
     color: $primary-color;
   }
 
+  @media screen and (max-width: 1000px) {
+    width: 100%;
+    padding: 0;
+    padding-top: 50px;
+  }
+
 }
 
 .homepage-quotes {
@@ -130,11 +142,19 @@ h3 {
     font-size: 3rem;
     width: 100%;
     transition: innerHTML 2s ease 0s;
+
+    @media screen and (max-width: 1000px) {
+      font-size: 2rem;
+    }
   }
 }
 
 .quote-class {
   transition: all 2s ease;
+
+  @media screen and (max-width: 1000px) {
+    font-size: 1rem;
+  }
 }
 
 .post-area {
@@ -173,7 +193,10 @@ h3 {
   border-radius: 5px;
   border: 2px double $primary-color;
   background-color: $backdrop-color;
-  // postback
+
+  @media screen and (max-width: 500px) {
+      width: 100%;
+    }
 }
 
 .each-post {
@@ -183,6 +206,12 @@ h3 {
   max-width: 500px;
   height: 300px;
   margin-bottom: 70px;
+  @media screen and (max-width: 500px) {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      height: 705px;
+    }
 }
 
 .each-photo  {
@@ -192,6 +221,11 @@ h3 {
   background-size: cover;
   border-top-left-radius: $radius;
   border-bottom-left-radius: $radius;
+
+   @media screen and (max-width: 500px) {
+      width: 300px;
+      height: 400px;
+    }
  }
 }
 
@@ -339,6 +373,10 @@ nav {
     padding: 30px;
     display: flex;
     justify-content: center;
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
   }
 
 }
@@ -358,6 +396,9 @@ nav {
 
   a {
     text-decoration: none;
+    @media screen and (max-width: 500px) {
+      font: 1.5rem;
+    }
   }
 
   h1:hover {
@@ -499,6 +540,11 @@ nav {
   button, .submit-reply, .subcomment-delete {
     @extend .button;
   }
+
+   @media screen and (max-width: 500px) {
+      width: 100%;
+      padding: 0px;
+    }
 }
 
 
@@ -512,7 +558,16 @@ nav {
     margin-bottom: 10px;
     height: 475px;
     width:300px;
+
+     @media screen and (max-width: 500px) {
+      margin-right: 0px;
+    }
   }
+
+   @media screen and (max-width: 500px) {
+
+      flex-direction: column;
+    }
 }
 
 .edit-button {
@@ -545,6 +600,10 @@ nav {
   textarea {
     height: 175px;
     width: 100%;
+
+     @media screen and (max-width: 500px) {
+      width: 90%;
+    }
   }
 }
 
