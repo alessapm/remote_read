@@ -564,8 +564,14 @@ nav {
     }
   }
 
-   @media screen and (max-width: 500px) {
+  .book-photo {
+     @media screen and (max-width: 500px) {
+      display: flex;
+      justify-content: center;
+    }
+  }
 
+   @media screen and (max-width: 500px) {
       flex-direction: column;
     }
 }
