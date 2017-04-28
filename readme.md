@@ -1,6 +1,8 @@
-# Welcome to Remote Read, a digital book club by Alessa
+![alt-text](public/img/quote.png)
 
-Remote Read is a simple forum for book lovers who want to post and discuss their book club selections online. Remote Read allows a user to post a book along with a cover photo, description, and initial rating. Other users can comment on that post, and even reply to other comments. 
+# Welcome to Remote Reader, a digital book club
+
+Remote Reader is a simple forum for book lovers who want to post and discuss their book club selections online. Remote Reader allows a user to post a book along with a cover photo, description, and initial rating. Other users can comment on that post, and even reply to other comments. 
 
 
 ## Approach 
@@ -13,7 +15,12 @@ Remote Read is a simple forum for book lovers who want to post and discuss their
 
 
 ## User Stories
-    * As a user I should be able to see all the books that have been posted, and their basic information.
+    * As a user I should be able to create an account
+    * As a user I should be able to log in to my account
+    * As a user I should be able to create groups
+    * As a user I should be able to join groups
+    * As a user I should be able to see the groups I belong to
+    * As a user I should be able to see all the books that have been posted in a group, and their basic information.
     * As a user I should be able to scroll down to read a long book description, directly on the index page. 
     * As a user I should be able to see how many comments a post has, from the index page.
     * As a user I should be able to add a new book post. 
@@ -28,11 +35,12 @@ Remote Read is a simple forum for book lovers who want to post and discuss their
 
 ## Technologies Used
 
-* HTML/CSS
+* HTML
+* SCSS
 * JavaScript
 * Node.js
 * Express.js
-* Node packages
+* Node packages: bcrypt, body-parser, ejs, express-session, method-override, marked, path, pg-promise
 
 ## Obstacles 
 
